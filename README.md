@@ -39,3 +39,25 @@ Members of the general public. More specifically, this includes:
 * People who have already decided to go, to make plans ahead of the festival and make a note of which events they definitely don't want to miss
 
 * Festival attendees during the festival, to view the programme to see what's on when and where, and decide which event to go to next.
+
+### Features
+
+Admin users should be able to:
+
+* Sign up for an account
+* Log in and out of their account
+* Add new events
+* Edit events they've already added
+* Set their events to 'public' once ready to be published to the public events programme
+* View a list of all events (in draft and public form) added by all admin users 
+* Filter the list of events to view events by category (performer, venue, day, type of event)
+* Delete their own events
+* Leave comments on events for other admin users
+
+Public users should be able to:
+
+* View the public events programme, without logging in
+* Filter the events programme by category (performer, venue, day, type of event), also without logging in
+* Sign up for an account
+* Log in and out of their account
+* Once logged in, select favourite events to build a custom list of events
