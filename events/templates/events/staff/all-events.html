@@ -10,5 +10,21 @@
 <body>
     <h1>All Events</h1>
     <p>This is where the list of all the events added - in draft and public mode - goes.</p>
+    <table>
+        {% for event in events %}
+            <tr>
+            </tr>
+            <tr>
+                <td>{{ event.start_time }}</td>
+                <td>{{ event.end_time }}</td>
+                <td>{{ event.name }}</td>
+                <td>
+                    <a href="/edit/{{ item.id }}">
+                        <button>Edit</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

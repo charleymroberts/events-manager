@@ -5,11 +5,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Add new event - Festival Events Manager</title>
 </head>
 <body>
     <h1>Add new event</h1>
     <p>This is where a custom form goes for staff users to add new events.</p>
-
+    <form method="POST" action="add"> <!--add?-->
+<!--         { % csrf_token % }-->
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Create event</button>
+    </form>
 </body>
 </html>
