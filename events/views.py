@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import EventForm
 
 # Create your views here.
@@ -20,6 +20,13 @@ def add_event(request):
     }
     return render(request, 'events/staff/add-event.html', context)
 
+
+def add_performer(request):
+    return render(request, 'events/staff/add-performer.html')
+
+
+def add_venue(request):
+    return render(request, 'events/staff/add-venue.html')
 
 # add_event: page with custom form for adding events
 # how do I actually implement edit/delete event?

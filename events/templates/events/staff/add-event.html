@@ -10,11 +10,10 @@
 <body>
     <h1>Add new event</h1>
     <p>This is where a custom form goes for staff users to add new events.</p>
-    <form method="POST" action="add"> <!--add?-->
-<!--         { % csrf_token % }-->
+    <form method="POST" action="/add-event">
         <table>
             {{ form.as_table }}
-        </table>
+        </table> <!--how does it know which form this is?-->
         <button type="submit">Create event</button>
     </form>
 </body>
