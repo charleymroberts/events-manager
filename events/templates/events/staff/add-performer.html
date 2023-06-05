@@ -6,7 +6,12 @@
 </head>
     <body>
         <h1>Add new performer</h1>
-        <p>Form goes here</p>
-
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit">Add performer</button>
+        </form>
     </body>
 </html>

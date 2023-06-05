@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Venue(models.Model):
-    name = models.CharField(max_length=100, null=False)  # can you set the contents of a charfield using dropdown menus?
-    location = models.CharField(max_length=100, null=False)  # does this want to just be text?
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
     stepfree = models.BooleanField(default=False)
     accessible_toilets = models.BooleanField(default=False)
 
@@ -14,10 +14,10 @@ class Venue(models.Model):
 
 
 class Performer(models.Model):
-    name = models.CharField(max_length=100, null=False, blank=False)
-    biog = models.TextField()
-    photo = models.FileField()
-    weblink = models.URLField()
+    name = models.CharField(max_length=100)
+    biog = models.TextField(null=True, blank=True)
+    photo = models.FileField(null=True, blank=True)
+    weblink = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -28,9 +28,9 @@ class Event(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, null=False, blank=False)
-    type = models.CharField(max_length=50, null=False, blank=False)
-    performers = models.ForeignKey(Performer, on_delete=models.CASCADE)
+    type = models.CharField(max_length=50, null=True, blank=True)
+    name = models.CharField(max_length=100, null=True, blank=True)
+    performers = models.ForeignKey(Performer, on_delete=models.CASCADE, null=True)
     published = models.BooleanField(default=False)
 
     def __str__(self):

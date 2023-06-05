@@ -6,6 +6,12 @@
 </head>
 <body>
     <h1>Add new venue</h1>
-    <p>Form goes here</p>
+    <form method="POST" action="/add-venue/">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Add venue</button>
+    </form>
 </body>
 </html>
