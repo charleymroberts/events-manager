@@ -5,17 +5,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add new event - Festival Events Manager</title>
+    <title>Edit event - Festival Events Manager</title>
 </head>
 <body>
-    <h1>Add new event</h1>
+    <h1>Edit event</h1>
     <p><a href="/dashboard">Back to dashboard</a></p>
-    <form method="POST" action="/add-event/">
+    <form method="POST"> <!--does this need an action here?-->
         {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit">Add event</button>
+        <button type="submit">Edit event</button>
     </form>
 </body>
 </html>

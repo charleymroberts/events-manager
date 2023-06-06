@@ -9,21 +9,33 @@
 </head>
 <body>
     <h1>All Events</h1>
-    <p>This is where the list of all the events added - in draft and public mode - goes.</p>
+    <p>List of all events, including both draft and published events. Only events marked 'published' are visible to the public.</p>
+    <p><a href="/dashboard">Back to dashboard</a></p>
     <table>
         {% for event in events %}
             <tr>
             </tr>
             <tr>
+                <td>{{ event.date }}</td>
                 <td>{{ event.start_time }}</td>
                 <td>{{ event.end_time }}</td>
+                <td>{{ event.venue }}</td>
+                <td>{{ event.type }}</td>
                 <td>{{ event.name }}</td>
+                <td>{{ event.performers }}</td>
+                {% if event.published %}
+                    <td>Published</td>
+                {% else %}
+                    <td>Draft</td>
+                {% endif %}
                 <td>
-                    <a href="/edit/{{ item.id }}">
+                    <a href="/edit-event/{{ event.id }}">
                         <button>Edit</button>
                     </a>
                 </td>
             </tr>
+        {% empty %}
+        <tr><td>No events added yet.</td></tr>
         {% endfor %}
     </table>
 </body>

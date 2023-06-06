@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from events.views import show_dashboard, staff_events_list, add_event, add_performer, add_venue
+from events.views import show_dashboard, staff_events_list, add_event, add_performer, add_venue, edit_event, public_events_programme
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,7 @@ urlpatterns = [
     path('all-events/', staff_events_list, name='all-events'),
     path('add-event/', add_event, name='add-event'),
     path('add-performer/', add_performer, name='add-performer'),
-    path('add-venue/', add_venue, name='add-venue')
+    path('add-venue/', add_venue, name='add-venue'),
+    path('edit-event/<event_id>', edit_event, name='edit-event'),
+    path('events-programme/', public_events_programme, name='events-programme')
 ]
