@@ -5,25 +5,34 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All Events - Festival Events Manager</title>
+    <title>Events Programme - The Summer Folk Festival</title>
 </head>
 <body>
     <h1>Events Programme: The Summer Folk Festival</h1>
     <p>Here are all the finalised events so far. Keep checking back for more as they're added!</p>
       <table>
-        {% for event in events %}
-            {% if event.published %}
-                <tr>
-                    <td>{{ event.date }}</td>
-                    <td>{{ event.start_time }}</td>
-                    <td>{{ event.end_time }}</td>
-                    <td>{{ event.venue }}</td>
-                    <td>{{ event.type }}</td>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.performers }}</td>
-                </tr>
-            {% endif %}
-        {% endfor %}
+          <tr>
+                <th>Date</th>
+                <th>Start time</th>
+                <th>Finish time</th>
+                <th>Venue</th>
+                <th>Type of event</th>
+                <th>Event name</th>
+                <th>Performers</th>
+            </tr>
+            {% for event in events %}
+                {% if event.published %}
+                    <tr>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event.start_time }}</td>
+                        <td>{{ event.end_time }}</td>
+                        <td>{{ event.venue }}</td>
+                        <td>{{ event.type }}</td>
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.performers }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
     </table>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Venues</title>
+</head>
+<body>
+    <h1>Venues</h1>
+    <p><a href="/dashboard">Back to dashboard</a></p>
+    <button><a href="/add-venue/">Add venue</a></button>
+    <table>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Step-free?</th>
+                <th>Accessible toilets?</th>
+            </tr>
+            {% for venue in venues %}
+            <tr>
+                <td>{{ venue.name }}</td>
+                <td>{{ venue.location }}</td>
+                {% if venue.stepfree %}
+                    <td>yes</td>
+                {% else %}
+                    <td>no</td>
+                {% endif %}
+                {% if venue.accessible_toilets %}
+                    <td>yes</td>
+                {% else %}
+                    <td>no</td>
+                {% endif %}
+                <td>
+                    <a href="/edit-venue/{{ venue.id }}">
+                        <button>Edit</button>
+                    </a>
+                </td>
+                  <td>
+                    <a href="/delete-venue/{{ venue.id }}">
+                        <button>Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+
+</body>
+</html>

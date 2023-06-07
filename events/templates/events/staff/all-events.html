@@ -8,13 +8,22 @@
     <title>All Events - Festival Events Manager</title>
 </head>
 <body>
-    <h1>All Events</h1>
-    <p>List of all events, including both draft and published events. Only events marked 'published' are visible to the public.</p>
+    <h1>All Events - organiser view</h1>
     <p><a href="/dashboard">Back to dashboard</a></p>
+    <p>List of all events, including both draft and published events. Only events marked 'published' are visible to the public.</p>
+    <a href="/add-event/"><button>Add new event</button></a>
     <table>
-        {% for event in events %}
             <tr>
+                <th>Date</th>
+                <th>Start time</th>
+                <th>Finish time</th>
+                <th>Venue</th>
+                <th>Type of event</th>
+                <th>Event name</th>
+                <th>Performers</th>
+                <th>Draft/Published</th>
             </tr>
+            {% for event in events %}
             <tr>
                 <td>{{ event.date }}</td>
                 <td>{{ event.start_time }}</td>
@@ -22,7 +31,7 @@
                 <td>{{ event.venue }}</td>
                 <td>{{ event.type }}</td>
                 <td>{{ event.name }}</td>
-                <td>{{ event.performers }}</td>
+                <td>{{ event.performer }}</td> <!--this needs to be something else-->
                 {% if event.published %}
                     <td>Published</td>
                 {% else %}
@@ -33,10 +42,13 @@
                         <button>Edit</button>
                     </a>
                 </td>
+                  <td>
+                    <a href="/delete-event/{{ event.id }}">
+                        <button>Delete event</button>
+                    </a>
+                </td>
             </tr>
-        {% empty %}
-        <tr><td>No events added yet.</td></tr>
-        {% endfor %}
+            {% endfor %}
     </table>
 </body>
 </html>

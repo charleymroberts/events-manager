@@ -16,15 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from events.views import show_dashboard, staff_events_list, add_event, add_performer, add_venue, edit_event, public_events_programme
+# from events.views import show_dashboard, staff_events_list, list_all_venues, add_event, add_performer, add_venue, edit_event, delete_event, public_events_programme, edit_venue
+from events import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dashboard/', show_dashboard, name='dashboard'),
-    path('all-events/', staff_events_list, name='all-events'),
-    path('add-event/', add_event, name='add-event'),
-    path('add-performer/', add_performer, name='add-performer'),
-    path('add-venue/', add_venue, name='add-venue'),
-    path('edit-event/<event_id>', edit_event, name='edit-event'),
-    path('events-programme/', public_events_programme, name='events-programme')
+    path('dashboard/', views.show_dashboard, name='dashboard'),
+    path('all-events/', views.staff_events_list, name='all-events'),
+    path('all-performers/', views.list_all_performers, name='all-performers'),
+    path('all-venues/', views.list_all_venues, name='all-venues'),
+    path('add-event/', views.add_event, name='add-event'),
+    path('add-performer/', views.add_performer, name='add-performer'),
+    path('add-venue/', views.add_venue, name='add-venue'),
+    path('edit-event/<event_id>', views.edit_event, name='edit-event'),
+    path('edit-performer/<performer_id>', views.edit_performer, name='edit-performer'),
+    path('edit-venue/<venue_id>', views.edit_venue, name='edit-venue'),
+    path('delete-event/<event_id>', views.delete_event, name='delete-event'),
+    path('delete-performer/<performer_id>', views.delete_performer, name='delete-performer'),
+    path('delete-venue/<venue_id>', views.delete_venue, name='delete-venue'),
+    path('events-programme/', views.public_events_programme, name='events-programme')
 ]

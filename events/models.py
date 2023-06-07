@@ -30,7 +30,7 @@ class Event(models.Model):
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
     type = models.CharField(max_length=50, null=True, blank=True)
     name = models.CharField(max_length=100, null=True, blank=True)
-    performers = models.ForeignKey(Performer, on_delete=models.CASCADE, null=True)
+    performers = models.ManyToManyField(Performer)
     published = models.BooleanField(default=False)
 
     def __str__(self):

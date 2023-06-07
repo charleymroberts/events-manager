@@ -20,12 +20,29 @@ def public_events_programme(request):
     }
     return render(request, 'events/public/events-programme.html', context)
 
+
+def list_all_performers(request):
+    performers = Performer.objects.all()
+    context = {
+        'performers': performers
+    }
+    return render(request, 'events/staff/all-performers.html', context)
+
+
+def list_all_venues(request):
+    venues = Venue.objects.all()
+    context = {
+        'venues': venues
+    }
+    return render(request, 'events/staff/all-venues.html', context)
+
+
 def add_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
         if form.is_valid:
             form.save()
-            # return redirect('dashboard/')
+            return redirect('/all-events/')
     form = EventForm()
     context = {
         'form': form
@@ -38,7 +55,6 @@ def add_performer(request):
         form = PerformerForm(request.POST)
         if form.is_valid:
             form.save()
-            # return redirect('dashboard/')
     form = PerformerForm()
     context = {
         'form': form
@@ -51,7 +67,7 @@ def add_venue(request):
         form = VenueForm(request.POST)
         if form.is_valid:
             form.save()
-            # return redirect('dashboard/')
+            return redirect('/all-venues/')
     form = VenueForm()
     context = {
         'form': form
@@ -65,10 +81,54 @@ def edit_event(request, event_id):
         form = EventForm(request.POST, instance=event)
         if form.is_valid():
             form.save()
-            # some kind of popup goes here to say edit successful?
             return redirect('/all-events/')
     form = EventForm(instance=event)
     context = {
         'form': form
     }
     return render(request, 'events/staff/edit-event.html', context)
+
+
+def edit_performer(request, performer_id):
+    performer = get_object_or_404(Performer, id=performer_id)
+    if request.method == 'POST':
+        form = PerformerForm(request.POST, instance=performer)
+        if form.is_valid():
+            form.save()
+            return redirect('/all-performers/')
+    form = PerformerForm(instance=performer)
+    context = {
+        'form': form
+    }
+    return render(request, 'events/staff/edit-performer.html', context)
+
+
+def edit_venue(request, venue_id):
+    venue = get_object_or_404(Venue, id=venue_id)
+    if request.method == 'POST':
+        form = VenueForm(request.POST, instance=venue)
+        if form.is_valid():
+            form.save()
+            return redirect('/all-venues/')
+    form = VenueForm(instance=venue)
+    context = {
+        'form': form
+    }
+    return render(request, 'events/staff/edit-venue.html', context)
+
+def delete_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    event.delete()
+    return redirect('/all-events/')
+
+
+def delete_performer(request, performer_id):
+    performer = get_object_or_404(Performer, id=performer_id)
+    performer.delete()
+    return redirect('/all-performers/')
+
+
+def delete_venue(request, venue_id):
+    venue = get_object_or_404(Venue, id=venue_id)
+    venue.delete()
+    return redirect('/all-venues/')

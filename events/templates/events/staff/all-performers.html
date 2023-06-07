@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All performers - Festival Events Manager</title>
+</head>
+<body>
+    <h1>Performers</h1>
+    <p><a href="/dashboard">Back to dashboard</a></p>
+    <a href="/add-performer">
+        <button>Add new performer</button>
+    </a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Biog</th>
+            <th>Photo</th>
+            <th>Web link</th>
+        </tr>
+        {% for performer in performers %}
+        <tr>
+                <td>{{ performer.name }}</td>
+                    {% if performer.biog %}
+                        <td>yes</td>
+                    {% else %}
+                        <td>no</td>
+                    {% endif %}
+                    {% if performer.photo %}
+                        <td>yes</td>
+                    {% else %}
+                        <td>no</td>
+                    {% endif %}
+                <td>{{ performer.weblink }}</td>
+                <td>
+                    <a href="/edit-performer/{{ performer.id }}">
+                        <button>Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/delete-performer/{{ performer.id }}">
+                        <button>Delete performer</button>
+                    </a>
+                </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
