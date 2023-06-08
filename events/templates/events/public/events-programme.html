@@ -29,7 +29,9 @@
                         <td>{{ event.venue }}</td>
                         <td>{{ event.type }}</td>
                         <td>{{ event.name }}</td>
-                        <td>{{ event.performers }}</td>
+                        {% for performer in event.performers.all %}
+                            <td>{{ performer }}</td>
+                        {% endfor %}
                     </tr>
                 {% endif %}
             {% endfor %}

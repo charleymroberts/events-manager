@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from .models import Event, Venue, Performer
 from .forms import EventForm, PerformerForm, VenueForm
 
@@ -42,6 +43,7 @@ def add_event(request):
         form = EventForm(request.POST)
         if form.is_valid:
             form.save()
+            messages.success(request, "Event added successfully")
             return redirect('/all-events/')
     form = EventForm()
     context = {
@@ -55,6 +57,8 @@ def add_performer(request):
         form = PerformerForm(request.POST)
         if form.is_valid:
             form.save()
+            messages.success(request, "Performer added successfully")
+            return redirect('/all-performers/')
     form = PerformerForm()
     context = {
         'form': form
@@ -67,6 +71,7 @@ def add_venue(request):
         form = VenueForm(request.POST)
         if form.is_valid:
             form.save()
+            messages.success(request, "Venue added successfully")
             return redirect('/all-venues/')
     form = VenueForm()
     context = {
@@ -81,6 +86,7 @@ def edit_event(request, event_id):
         form = EventForm(request.POST, instance=event)
         if form.is_valid():
             form.save()
+            messages.success(request, "Event edited successfully")
             return redirect('/all-events/')
     form = EventForm(instance=event)
     context = {
@@ -95,6 +101,7 @@ def edit_performer(request, performer_id):
         form = PerformerForm(request.POST, instance=performer)
         if form.is_valid():
             form.save()
+            messages.success(request, "Performer edited successfully")
             return redirect('/all-performers/')
     form = PerformerForm(instance=performer)
     context = {
@@ -109,6 +116,7 @@ def edit_venue(request, venue_id):
         form = VenueForm(request.POST, instance=venue)
         if form.is_valid():
             form.save()
+            messages.success(request, "Venue edited successfully")
             return redirect('/all-venues/')
     form = VenueForm(instance=venue)
     context = {
@@ -119,16 +127,19 @@ def edit_venue(request, venue_id):
 def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     event.delete()
+    messages.success(request, "Event deleted")
     return redirect('/all-events/')
 
 
 def delete_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     performer.delete()
+    messages.success(request, "Performer deleted")
     return redirect('/all-performers/')
 
 
 def delete_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
     venue.delete()
+    messages.success(request, "Venue deleted")
     return redirect('/all-venues/')
