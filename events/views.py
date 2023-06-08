@@ -90,7 +90,8 @@ def edit_event(request, event_id):
             return redirect('/all-events/')
     form = EventForm(instance=event)
     context = {
-        'form': form
+        'form': form,
+        'event': event
     }
     return render(request, 'events/staff/edit-event.html', context)
 
@@ -105,7 +106,8 @@ def edit_performer(request, performer_id):
             return redirect('/all-performers/')
     form = PerformerForm(instance=performer)
     context = {
-        'form': form
+        'form': form,
+        'performer': performer
     }
     return render(request, 'events/staff/edit-performer.html', context)
 
@@ -120,7 +122,8 @@ def edit_venue(request, venue_id):
             return redirect('/all-venues/')
     form = VenueForm(instance=venue)
     context = {
-        'form': form
+        'form': form,
+        'venue': venue
     }
     return render(request, 'events/staff/edit-venue.html', context)
 
