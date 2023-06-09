@@ -29,9 +29,13 @@
                         <td>{{ event.venue }}</td>
                         <td>{{ event.type }}</td>
                         <td>{{ event.name }}</td>
-                        {% for performer in event.performers.all %}
-                            <td>{{ performer }}</td>
-                        {% endfor %}
+                        <td>{% for performer in event.performers.all %}
+                            {% if performer.biog %}
+                                <a href="/performer/{{ performer.id }}">{{ performer }}<br></a>
+                            {% else %}
+                                {{ performer }}<br>
+                            {% endif %}
+                        {% endfor %}</td>
                     </tr>
                 {% endif %}
             {% endfor %}

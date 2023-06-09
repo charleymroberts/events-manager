@@ -7,6 +7,7 @@ from .forms import EventForm, PerformerForm, VenueForm
 def show_dashboard(request):
     return render(request, 'events/staff/dashboard.html')
 
+
 def staff_events_list(request):
     events = Event.objects.all()
     context = {
@@ -14,13 +15,21 @@ def staff_events_list(request):
     }
     return render(request, 'events/staff/all-events.html', context)
 
+
 def public_events_programme(request):
     events = Event.objects.all()
     context = {
-        'events': events
+        'events': events,
     }
     return render(request, 'events/public/events-programme.html', context)
 
+
+def view_performer(request, performer_id):
+    performer = get_object_or_404(Performer, id=performer_id)
+    context = {
+        'performer': performer
+    }
+    return render(request, 'events/public/performer.html', context)
 
 def list_all_performers(request):
     performers = Performer.objects.all()
@@ -143,6 +152,9 @@ def delete_performer(request, performer_id):
 
 def delete_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
-    venue.delete()
-    messages.success(request, "Venue deleted")
+    try:
+        venue.delete()
+        messages.success(request, "Venue deleted")
+    except:
+        pass
     return redirect('/all-venues/')
