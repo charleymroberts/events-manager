@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Event, Venue, Performer
@@ -155,6 +156,6 @@ def delete_venue(request, venue_id):
     try:
         venue.delete()
         messages.success(request, "Venue deleted")
-    except:
-        pass
+    except IntegrityError as error:
+        messages.warning(request, "You cannot delete this venue because it has events assigned to it. You must delete or assign the events to a different venue before you can delete this venue.")
     return redirect('/all-venues/')
