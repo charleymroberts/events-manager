@@ -15,9 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # from events.views import show_dashboard, staff_events_list, list_all_venues, add_event, add_performer, add_venue, edit_event, delete_event, public_events_programme, edit_venue
 from events import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,5 +36,6 @@ urlpatterns = [
     path('delete-performer/<performer_id>', views.delete_performer, name='delete-performer'),
     path('delete-venue/<venue_id>', views.delete_venue, name='delete-venue'),
     path('events-programme/', views.public_events_programme, name='events-programme'),
-    path('performer/<performer_id>', views.view_performer, name='performer')
+    path('performer/<performer_id>', views.view_performer, name='performer'),
+    path('accounts/', include('allauth.urls')),
 ]

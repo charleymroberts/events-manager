@@ -3,12 +3,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Event, Venue, Performer
 from .forms import EventForm, PerformerForm, VenueForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required()
 def show_dashboard(request):
     return render(request, 'events/staff/dashboard.html')
 
-
+@login_required()
 def staff_events_list(request):
     events = Event.objects.all()
     context = {
@@ -32,6 +34,8 @@ def view_performer(request, performer_id):
     }
     return render(request, 'events/public/performer.html', context)
 
+
+@login_required()
 def list_all_performers(request):
     performers = Performer.objects.all()
     context = {
@@ -40,6 +44,7 @@ def list_all_performers(request):
     return render(request, 'events/staff/all-performers.html', context)
 
 
+@login_required()
 def list_all_venues(request):
     venues = Venue.objects.all()
     context = {
@@ -48,6 +53,7 @@ def list_all_venues(request):
     return render(request, 'events/staff/all-venues.html', context)
 
 
+@login_required()
 def add_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
@@ -62,6 +68,7 @@ def add_event(request):
     return render(request, 'events/staff/add-event.html', context)
 
 
+@login_required()
 def add_performer(request):
     if request.method == 'POST':
         form = PerformerForm(request.POST)
@@ -76,6 +83,7 @@ def add_performer(request):
     return render(request, 'events/staff/add-performer.html', context)
 
 
+@login_required()
 def add_venue(request):
     if request.method == 'POST':
         form = VenueForm(request.POST)
@@ -90,6 +98,7 @@ def add_venue(request):
     return render(request, 'events/staff/add-venue.html', context)
 
 
+@login_required()
 def edit_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     if request.method == 'POST':
@@ -106,6 +115,7 @@ def edit_event(request, event_id):
     return render(request, 'events/staff/edit-event.html', context)
 
 
+@login_required()
 def edit_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     if request.method == 'POST':
@@ -122,6 +132,7 @@ def edit_performer(request, performer_id):
     return render(request, 'events/staff/edit-performer.html', context)
 
 
+@login_required()
 def edit_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
     if request.method == 'POST':
@@ -137,6 +148,8 @@ def edit_venue(request, venue_id):
     }
     return render(request, 'events/staff/edit-venue.html', context)
 
+
+@login_required()
 def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     event.delete()
@@ -144,6 +157,7 @@ def delete_event(request, event_id):
     return redirect('/all-events/')
 
 
+@login_required()
 def delete_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     performer.delete()
@@ -151,6 +165,7 @@ def delete_performer(request, performer_id):
     return redirect('/all-performers/')
 
 
+@login_required()
 def delete_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
     try:
