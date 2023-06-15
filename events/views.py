@@ -6,11 +6,14 @@ from .forms import EventForm, PerformerForm, VenueForm
 from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
-@permission_required("events.view_event")
+@login_required()
+@permission_required("events.view_event", raise_exception=True)
 def show_dashboard(request):
     return render(request, 'events/staff/dashboard.html')
 
-@permission_required("events.view_event")
+
+@login_required()
+@permission_required("events.view_event", raise_exception=True)
 def staff_events_list(request):
     events = Event.objects.all()
     context = {
@@ -35,7 +38,8 @@ def view_performer(request, performer_id):
     return render(request, 'events/public/performer.html', context)
 
 
-@permission_required("events.view_performer")
+@login_required()
+@permission_required("events.view_performer", raise_exception=True)
 def list_all_performers(request):
     performers = Performer.objects.all()
     context = {
@@ -44,7 +48,8 @@ def list_all_performers(request):
     return render(request, 'events/staff/all-performers.html', context)
 
 
-@permission_required("events.view_venue")
+@login_required()
+@permission_required("events.view_venue", raise_exception=True)
 def list_all_venues(request):
     venues = Venue.objects.all()
     context = {
@@ -53,7 +58,8 @@ def list_all_venues(request):
     return render(request, 'events/staff/all-venues.html', context)
 
 
-@permission_required("events.add_event")
+@login_required()
+@permission_required("events.add_event", raise_exception=True)
 def add_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
@@ -68,7 +74,8 @@ def add_event(request):
     return render(request, 'events/staff/add-event.html', context)
 
 
-@permission_required("events.add_performer")
+@login_required()
+@permission_required("events.add_performer", raise_exception=True)
 def add_performer(request):
     if request.method == 'POST':
         form = PerformerForm(request.POST)
@@ -83,7 +90,8 @@ def add_performer(request):
     return render(request, 'events/staff/add-performer.html', context)
 
 
-@permission_required("events.add_venue")
+@login_required()
+@permission_required("events.add_venue", raise_exception=True)
 def add_venue(request):
     if request.method == 'POST':
         form = VenueForm(request.POST)
@@ -98,7 +106,8 @@ def add_venue(request):
     return render(request, 'events/staff/add-venue.html', context)
 
 
-@permission_required("events.change_event")
+@login_required()
+@permission_required("events.change_event", raise_exception=True)
 def edit_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     if request.method == 'POST':
@@ -115,7 +124,8 @@ def edit_event(request, event_id):
     return render(request, 'events/staff/edit-event.html', context)
 
 
-@permission_required("events.change_performer")
+@login_required()
+@permission_required("events.change_performer", raise_exception=True)
 def edit_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     if request.method == 'POST':
@@ -132,7 +142,8 @@ def edit_performer(request, performer_id):
     return render(request, 'events/staff/edit-performer.html', context)
 
 
-@permission_required("events.change_venue")
+@login_required()
+@permission_required("events.change_venue", raise_exception=True)
 def edit_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
     if request.method == 'POST':
@@ -149,7 +160,8 @@ def edit_venue(request, venue_id):
     return render(request, 'events/staff/edit-venue.html', context)
 
 
-@permission_required("events.delete_event")
+@login_required()
+@permission_required("events.delete_event", raise_exception=True)
 def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     event.delete()
@@ -157,7 +169,8 @@ def delete_event(request, event_id):
     return redirect('/all-events/')
 
 
-@permission_required("events.delete_performer")
+@login_required()
+@permission_required("events.delete_performer", raise_exception=True)
 def delete_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     performer.delete()
@@ -165,7 +178,8 @@ def delete_performer(request, performer_id):
     return redirect('/all-performers/')
 
 
-@permission_required("events.delete_venue")
+@login_required()
+@permission_required("events.delete_venue", raise_exception=True)
 def delete_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
     try:
