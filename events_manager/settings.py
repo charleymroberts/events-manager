@@ -28,9 +28,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = (os.environ.get('DJANGO_DEBUG') == 'yes')
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://festival-manager-2ef1a8933d4d.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['festival-manager-2ef1a8933d4d.herokuapp.com/', 'localhost']
 
 
 # Application definition
