@@ -4,10 +4,14 @@ cffi==1.15.1
 charset-normalizer==3.1.0
 cryptography==41.0.1
 defusedxml==0.7.1
+dj3-cloudinary-storage
 Django==4.2.1
 django-allauth==0.54.0
+dj_database_url
+gunicorn
 idna==3.4
 oauthlib==3.2.2
+psycopg2
 pycparser==2.21
 PyJWT==2.7.0
 python3-openid==3.2.0
