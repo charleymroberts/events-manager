@@ -22,6 +22,9 @@ def staff_events_list(request):
     return render(request, 'events/staff/all-events.html', context)
 
 
+def homepage(request):
+    return render(request, 'events/public/welcome.html')
+
 def public_events_programme(request):
     events = Event.objects.all()
     context = {
@@ -29,6 +32,12 @@ def public_events_programme(request):
     }
     return render(request, 'events/public/events-programme.html', context)
 
+def view_by_performer(request):
+    performers = Performer.objects.all()
+    context = {
+        'performers': performers
+    }
+    return render(request, 'events/public/by-performer.html', context)
 
 def view_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
@@ -36,6 +45,22 @@ def view_performer(request, performer_id):
         'performer': performer
     }
     return render(request, 'events/public/performer.html', context)
+
+
+def view_by_venue(request):
+    venues = Venue.objects.all()
+    context = {
+        'venues': venues
+    }
+    return render(request, 'events/public/by-venue.html', context)
+
+
+def view_venue(request, venue_id):
+    venue = get_object_or_404(Venue, id=venue_id)
+    context = {
+        'venue': venue
+    }
+    return render(request, 'events/public/venue.html', context)
 
 
 @login_required()

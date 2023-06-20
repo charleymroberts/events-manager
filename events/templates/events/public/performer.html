@@ -1,17 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Performer info: The Summer Folk Festival</title>
-</head>
-<body>
+{% extends base_staff.html %}
+
+{% block two %}
 
     <h1>{{ performer.name }}</h1>
-    <p>{{ performer.biog }}</p>
+    {% if performer.biog %}
+        <p>{{ performer.biog }}</p>
+    {% else %}
+        <p>{{ performer.name }} is behind on their admin and hasn't sent us their information yet. Naughty human(s).</p>
+    {% endif %}
+    {% if performer.weblink %}
     <p>{{ performer.weblink }}</p>
+    {% endif %}
 
-</body>
-</html>
+<!--Queryset goes here? With list of events including this performer-->
+
+{% endblock %}

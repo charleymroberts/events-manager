@@ -22,6 +22,7 @@ from events import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.homepage, name='welcome'),
     path('dashboard/', views.show_dashboard, name='dashboard'),
     path('all-events/', views.staff_events_list, name='all-events'),
     path('all-performers/', views.list_all_performers, name='all-performers'),
@@ -36,6 +37,9 @@ urlpatterns = [
     path('delete-performer/<performer_id>', views.delete_performer, name='delete-performer'),
     path('delete-venue/<venue_id>', views.delete_venue, name='delete-venue'),
     path('events-programme/', views.public_events_programme, name='events-programme'),
+    path('by-performer/', views.view_by_performer, name='by-performer'),
     path('performer/<performer_id>', views.view_performer, name='performer'),
+    path('by-venue/', views.view_by_venue, name='by-venue'),
+    path('venue/<venue_id>', views.view_venue, name='venue'),
     path('accounts/', include('allauth.urls')),
 ]

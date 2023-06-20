@@ -1,0 +1,19 @@
+{% extends 'base_public.html' %}
+
+{% block title%}Performer info - The Summer Folk Festival{% endblock %}
+
+{% block two %}
+
+<h2>Performer info</h2>
+
+{% for performer in performers %}
+    <p><a href="{% url 'performer' performer.id %}">{{ performer.name }}</a></p>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+

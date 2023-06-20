@@ -1,0 +1,13 @@
+{% extends "base_public.html" %}
+
+{% block title %}Venues{% endblock %}
+
+{% block two %}
+
+    <h2>View events by venue</h2>
+
+    {% for venue in venues %}
+        <p><a href="/venue/{{ venue.id }}">{{ venue.name }}</a></p>
+    {% endfor %}
+
+{% endblock %}

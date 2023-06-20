@@ -1,0 +1,25 @@
+{% extends 'base_public.html' %}
+
+{% block title %}{{ venue.name }}{% endblock %}
+
+{% block two %}
+
+    <h1>{{ venue.name }}</h1>
+    <p>Address: {{ venue.location }}</p>
+    <p>Step free?</p>
+    {% if venue.stepfree %}
+        <p>Yes</p>
+    {% else %}
+        <p>No</p>
+    {% endif %}
+    <p>Accessible toilets?</p>
+    {% if venue.accessible_toilets %}
+        <p>Yes</p>
+    {% else %}
+        <p>No</p>
+    {% endif %}
+
+<!--Queryset goes here? all events in this venue-->
+Queryset.objects.filter(venue.name = )
+
+{% endblock %}
