@@ -57,8 +57,10 @@ def view_by_venue(request):
 
 def view_venue(request, venue_id):
     venue = get_object_or_404(Venue, id=venue_id)
+    events = Event.objects.filter(venue=venue)
     context = {
-        'venue': venue
+        'venue': venue,
+        'events': events
     }
     return render(request, 'events/public/venue.html', context)
 

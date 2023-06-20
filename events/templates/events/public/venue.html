@@ -19,7 +19,27 @@
         <p>No</p>
     {% endif %}
 
-<!--Queryset goes here? all events in this venue-->
-Queryset.objects.filter(venue.name = )
+    <h2>All events in this venue</h2>
+        <table>
+            {% for event in events %}
+                {% if event.published %}
+                    <tr>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event.start_time }}</td>
+                        <td>{{ event.end_time }}</td>
+                        <td>{{ event.venue }}</td>
+                        <td>{{ event.type }}</td>
+                        <td>{{ event.name }}</td>
+                        <td>{% for performer in event.performers.all %}
+                            {% if performer.biog %}
+                                <a href="{% url 'performer' performer.id %}">{{ performer }}<br></a>
+                            {% else %}
+                                {{ performer }}<br>
+                            {% endif %}
+                        {% endfor %}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
 
 {% endblock %}

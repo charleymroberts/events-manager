@@ -1,23 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Events Programme - The Summer Folk Festival</title>
-</head>
-<nav>
-    <p><a href="/">Home</a></p>
-    View by:
-    <ul>
-        <li>Day</li>
-        <li><a href="/by-performer/">Performer</a></li>
-        <li>Venue</li>
-        <li>Event type</li>
-    </ul>
-</nav>
-<body>
+{% extends 'base_public.html' %}
+
+{% block title %}Events programme: The Summer Folk Festival{% endblock %}
+
+{% block two %}
     <h1>Events Programme: The Summer Folk Festival</h1>
     <p>Here are all the finalised events so far. Keep checking back for more as they're added!</p>
       <table>
@@ -41,7 +26,7 @@
                         <td>{{ event.name }}</td>
                         <td>{% for performer in event.performers.all %}
                             {% if performer.biog %}
-                                <a href="/performer/{{ performer.id }}">{{ performer }}<br></a>
+                                <a href="{% url 'performer' performer.id %}">{{ performer }}<br></a>
                             {% else %}
                                 {{ performer }}<br>
                             {% endif %}
@@ -50,5 +35,4 @@
                 {% endif %}
             {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}

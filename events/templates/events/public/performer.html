@@ -1,4 +1,4 @@
-{% extends base_staff.html %}
+{% extends 'base_public.html' %}
 
 {% block two %}
 
@@ -11,7 +11,5 @@
     {% if performer.weblink %}
     <p>{{ performer.weblink }}</p>
     {% endif %}
-
-<!--Queryset goes here? With list of events including this performer-->
 
 {% endblock %}
