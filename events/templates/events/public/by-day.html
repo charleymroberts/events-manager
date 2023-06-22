@@ -2,6 +2,10 @@
 
 {% block two %}
 
-<p>Thing goes in here automatically generating a list of days, which then links to a page showing just the events for that day.</p>
+<h2>View events by day</h2>
+
+{% for day in days %}
+    <p><a href="{% url 'events-on-day' day %}">{{ day }}</a></p>
+{% endfor %}
 
 {% endblock %}

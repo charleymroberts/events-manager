@@ -5,6 +5,7 @@
 {% block two %}
 
 <h2>Performer info</h2>
+<p>Click on a performer name to see more details about them</p>
 
 {% for performer in performers %}
     <p><a href="{% url 'performer' performer.id %}">{{ performer.name }}</a></p>

@@ -2,18 +2,19 @@
 
 {% block two %}
 
-        <h1>Dashboard - Welcome, {{ user.username }}</h1>
-        <h2>Control panel</h2>
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+        <h1>Dashboard</h1>
+        <p>Welcome, {{ user.username }}</p>
+        <h2>Manage:</h2>
+<!--        {% if messages %}-->
+<!--        <ul class="messages">-->
+<!--            {% for message in messages %}-->
+<!--            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--        {% endif %}-->
         <p><a href="{% url 'all-events' %}">Events</a></p>
         <p><a href="{% url 'all-performers' %}">Performers</a></p>
         <p><a href="{% url 'all-venues' %}">Venues</a></p>
-        <p><a href="{% url 'events-programme' %}">View public events programme</a></p>
+        <p><a href="{% url 'events-programme' %}">View public site</a></p>
 
 {% endblock %}

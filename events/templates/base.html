@@ -8,7 +8,15 @@
     <title>{% block title %}The Summer Folk Festival{% endblock %}</title>
 </head>
 <body>
-<h1>This is the Base Template.</h1>
+<h1>The Summer Folk Festival</h1>
+{% if user.is_authenticated %}
+    <p>Currently logged in as {{ user.username }} <a href="/accounts/logout">Logout</a></p>
+    {% if user.is_staff %}
+        <p><a href="{% url 'dashboard' %}">View admin dashboard</a></p>
+    {% endif %}
+{% else %}
+    <p><a href="/accounts/login">Login/Sign up</a></p>
+{% endif %}
 
 {% block one %}{% endblock %}
 {% block two %}{% endblock %}

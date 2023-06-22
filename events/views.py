@@ -41,8 +41,10 @@ def view_by_performer(request):
 
 def view_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
+    # events = Event.objects.get(performer)
     context = {
-        'performer': performer
+        'performer': performer,
+        # 'events': events
     }
     return render(request, 'events/public/performer.html', context)
 
@@ -55,15 +57,33 @@ def view_by_venue(request):
     return render(request, 'events/public/by-venue.html', context)
 
 
+
 def view_venue(request, venue_id):
-    venue = get_object_or_404(Venue, id=venue_id)
-    events = Event.objects.filter(venue=venue)
+    this_venue = get_object_or_404(Venue, id=venue_id)
+    events = Event.objects.filter(venue=this_venue)
     context = {
-        'venue': venue,
+        'venue': this_venue,
         'events': events
     }
     return render(request, 'events/public/venue.html', context)
 
+
+def view_by_day(request):
+    days = Event.objects.dates("date", "day")
+    context = {
+        'days': days
+    }
+    return render(request, 'events/public/by-day.html', context)
+
+
+def events_on_day(request, event_date):
+    events = Event.objects.filter(date=event_date)
+    days = Event.objects.dates("date", "day")
+    context = {
+        'events': events,
+        'days': days
+    }
+    return render(request, 'events/public/day.html', context)
 
 @login_required()
 @permission_required("events.view_performer", raise_exception=True)

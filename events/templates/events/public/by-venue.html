@@ -4,10 +4,10 @@
 
 {% block two %}
 
-    <h2>View events by venue</h2>
+    <h2>Venue details/View events by venue</h2>
 
     {% for venue in venues %}
-        <p><a href="/venue/{{ venue.id }}">{{ venue.name }}</a></p>
+        <p><a href="{% url 'venue' venue.id %}">{{ venue.name }}</a></p>
     {% endfor %}
 
 {% endblock %}

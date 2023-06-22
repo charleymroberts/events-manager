@@ -2,19 +2,15 @@
 
 {% block one %}
     <nav>
-        <p>This menu is in the base_public.html template.</p>
         <p><a href="{% url 'welcome' %}">Home</a></p>
-        <p>View by:</p>
-        <p>Day</p>
-        <p><a href="/by-performer/">Performer</a></p>
-        <p><a href="/by-venue/">Venue</a></p>
-        <p>Event type</p>
-        <p>Signup/Login/Logout</p>
+        <p><a href="{% url 'events-programme' %}">View all events</a></p>
+        <p><a href="{% url 'by-day' %}">Events by day</a></p>
+        <p><a href="{% url 'by-performer' %}">Performers</a></p>
+        <p><a href="{% url 'by-venue' %}">Venues</a></p>
     </nav>
 {% endblock %}
 {% block two %}
-    <p>This is where the list of Things (venues, performers etc) should go.
-        It appears block two also needs to be included in the base.html template as well as this one.</p>
+
 {% endblock %}
 
 

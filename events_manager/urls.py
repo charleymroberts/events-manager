@@ -15,9 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, register_converter
 # from events.views import show_dashboard, staff_events_list, list_all_venues, add_event, add_performer, add_venue, edit_event, delete_event, public_events_programme, edit_venue
 from events import views
+from datetime import date, datetime
+
+class DateConverter:
+    regex = r"\d{4}-\d{1,2}-\d{1,2}"
+    format = "%Y-%m-%d"
+
+    def to_python(self, value: str) -> date:
+        return datetime.strptime(value, self.format).date()
+
+    def to_url(self, value: date) -> str:
+        return value.strftime(self.format)
+
+
+register_converter(DateConverter, "date")
 
 
 urlpatterns = [
@@ -41,5 +55,7 @@ urlpatterns = [
     path('performer/<performer_id>', views.view_performer, name='performer'),
     path('by-venue/', views.view_by_venue, name='by-venue'),
     path('venue/<venue_id>', views.view_venue, name='venue'),
+    path('by-day/', views.view_by_day, name='by-day'),
+    path('day/<date:event_date>', views.events_on_day, name='events-on-day'),
     path('accounts/', include('allauth.urls')),
 ]

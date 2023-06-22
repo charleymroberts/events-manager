@@ -1,25 +1,9 @@
 {% extends 'base_public.html' %}
 
-{% block title %}{{ venue.name }}{% endblock %}
-
 {% block two %}
-
-    <h1>{{ venue.name }}</h1>
-    <p>Address: {{ venue.location }}</p>
-    <p>Step free?</p>
-    {% if venue.stepfree %}
-        <p>Yes</p>
-    {% else %}
-        <p>No</p>
-    {% endif %}
-    <p>Accessible toilets?</p>
-    {% if venue.accessible_toilets %}
-        <p>Yes</p>
-    {% else %}
-        <p>No</p>
-    {% endif %}
-
-    <h2>All events in {{ venue.name }}</h2>
+        {% for event in events %}
+            <h1>Events on {{ event.date }}</h1>
+        {% endfor %}
         <table>
             <tr>
                 <th>Date</th>
