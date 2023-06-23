@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
 
 {% block one %}
-    <nav>
-        <p><a href="{% url 'welcome' %}">Home</a></p>
-        <p><a href="{% url 'events-programme' %}">View all events</a></p>
-        <p><a href="{% url 'by-day' %}">Events by day</a></p>
-        <p><a href="{% url 'by-performer' %}">Performers</a></p>
-        <p><a href="{% url 'by-venue' %}">Venues</a></p>
-    </nav>
+
+<nav class="navbar navbar-expand-md">
+    <div class="container-xxl">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <ul class="navbar-nav">
+            <li class="p-2"><a class="menu-item" href="{% url 'events-programme' %}">All events</a></li>
+            <li class="p-2"><a href="{% url 'by-day' %}">Events by day</a></li>
+            <li class="p-2"><a href="{% url 'by-performer' %}">Performers</a></li>
+            <li class="p-2"><a href="{% url 'by-venue' %}">Venues</a></li>
+        </ul>
+    </div>
+
+    </div>
+</nav>
+
 {% endblock %}
+
 {% block two %}
 
 {% endblock %}

@@ -2,10 +2,14 @@
 
 {% block two %}
 
-<h2>View events by day</h2>
+<div class="row text-center">
 
-{% for day in days %}
-    <p><a href="{% url 'events-on-day' day %}">{{ day }}</a></p>
-{% endfor %}
+    <h2 class="display-6">View events by day</h2>
+
+    {% for day in days %}
+        <p><a href="{% url 'events-on-day' day %}">{{ day|date:"D j M" }}</a></p>
+    {% endfor %}
+
+</div>
 
 {% endblock %}

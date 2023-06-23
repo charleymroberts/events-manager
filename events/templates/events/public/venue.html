@@ -4,51 +4,42 @@
 
 {% block two %}
 
-    <h1>{{ venue.name }}</h1>
-    <p>Address: {{ venue.location }}</p>
-    <p>Step free?</p>
-    {% if venue.stepfree %}
-        <p>Yes</p>
-    {% else %}
-        <p>No</p>
-    {% endif %}
-    <p>Accessible toilets?</p>
-    {% if venue.accessible_toilets %}
-        <p>Yes</p>
-    {% else %}
-        <p>No</p>
-    {% endif %}
+<div class="row col-md-6">
+    <h2>{{ venue.name }}</h2>
+    <p>Address: {{ venue.location }}<br>
+    Step free? {% if venue.stepfree %} Yes {% else %} No {% endif %}<br>
+    Accessible toilets? {% if venue.accessible_toilets %} Yes {% else %} No {% endif %}</p>
+</div>
 
-    <h2>All events in {{ venue.name }}</h2>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Start time</th>
-                <th>Finish time</th>
-                <th>Venue</th>
-                <th>Type of event</th>
-                <th>Event name</th>
-                <th>Performers</th>
-            </tr>
+<h2>All events in {{ venue.name }}</h2>
+
+        <div class="container">
+            <div class="row border th">
+                <div class="col-3 col-lg-2 py-1">Date</div>
+                <div class="col-3 col-lg-2 py-1">Times</div>
+                <div class="col-6 col-lg-2 py-1">Event</div>
+                <div class="col-3 col-lg-2 py-1">Type</div>
+                <div class="col-3 col-lg-2 py-1">Venue</div>
+                <div class="col-6 col-lg-2 py-1">Performers</div>
+            </div>
             {% for event in events %}
                 {% if event.published %}
-                    <tr>
-                        <td>{{ event.date }}</td>
-                        <td>{{ event.start_time }}</td>
-                        <td>{{ event.end_time }}</td>
-                        <td>{{ event.venue }}</td>
-                        <td>{{ event.type }}</td>
-                        <td>{{ event.name }}</td>
-                        <td>{% for performer in event.performers.all %}
+                    <div class="row border">
+                        <div class="col-3 col-lg-2 py-1">{{ event.date|date:"D j M"  }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.start_time|time:"H:i" }}-{{ event.end_time|time:"H:i" }}</div>
+                        <div class="col-6 col-lg-2 py-1">{{ event.name }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.type }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.venue }}</div>
+                        <div class="col-6 col-lg-2 py-1">{% for performer in event.performers.all %}
                             {% if performer.biog %}
                                 <a href="{% url 'performer' performer.id %}">{{ performer }}<br></a>
                             {% else %}
                                 {{ performer }}<br>
                             {% endif %}
-                        {% endfor %}</td>
-                    </tr>
+                        {% endfor %}</div>
+                    </div>
                 {% endif %}
             {% endfor %}
-        </table>
+        </div>
 
 {% endblock %}

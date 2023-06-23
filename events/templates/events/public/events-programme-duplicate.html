@@ -2,8 +2,32 @@
 
 {% block title %}Events programme: The Summer Folk Festival{% endblock %}
 
+{% block one %}
+
+<nav class="navbar navbar-expand-md">
+    <div class="container-xxl">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <ul class="navbar-nav">
+            <li class="p-2"><a class="menu-item" href="{% url 'events-programme' %}">All events</a></li>
+            <li class="p-2"><a href="{% url 'by-day' %}">Events by day</a></li>
+            <li class="p-2"><a href="{% url 'by-performer' %}">Performers</a></li>
+            <li class="p-2"><a href="{% url 'by-venue' %}">Venues</a></li>
+        </ul>
+    </div>
+
+    </div>
+</nav>
+
+{% endblock %}
+
 {% block two %}
-    <h2 class="display-5 text-center py-2">Events Programme: The Summer Folk Festival</h2>
+    <h2 class="display-4 text-center py-2">Events Programme: The Summer Folk Festival</h2>
     <p class="lead text-center p-1">Here are all the finalised events so far. Keep checking back for more as they're added!</p>
       <div class="container">
             <div class="row border th">
@@ -34,5 +58,3 @@
             {% endfor %}
       </div>
 {% endblock %}
-
-

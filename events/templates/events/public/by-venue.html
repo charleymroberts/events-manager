@@ -4,10 +4,13 @@
 
 {% block two %}
 
-    <h2>Venue details/View events by venue</h2>
+<div class="row text-center">
+    <h2 class="display-6">Venues</h2>
 
     {% for venue in venues %}
         <p><a href="{% url 'venue' venue.id %}">{{ venue.name }}</a></p>
     {% endfor %}
+
+</div>
 
 {% endblock %}

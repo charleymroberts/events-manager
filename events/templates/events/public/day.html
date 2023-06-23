@@ -1,38 +1,42 @@
 {% extends 'base_public.html' %}
 
 {% block two %}
-        {% for event in events %}
-            <h1>Events on {{ event.date }}</h1>
-        {% endfor %}
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Start time</th>
-                <th>Finish time</th>
-                <th>Venue</th>
-                <th>Type of event</th>
-                <th>Event name</th>
-                <th>Performers</th>
-            </tr>
+
+<input type=button value="Back" onClick="javascript:history.go(-1);">
+
+<div class="row text-center">
+    {% for event in events %}
+    <h2>Events on {{ event.date|date:"D j M" }}</h2>
+    {% endfor %}
+</div>
+
+        <div class="container">
+            <div class="row border th">
+                <div class="col-3 col-lg-2 py-1">Date</div>
+                <div class="col-3 col-lg-2 py-1">Times</div>
+                <div class="col-6 col-lg-2 py-1">Event</div>
+                <div class="col-3 col-lg-2 py-1">Type</div>
+                <div class="col-3 col-lg-2 py-1">Venue</div>
+                <div class="col-6 col-lg-2 py-1">Performers</div>
+            </div>
             {% for event in events %}
                 {% if event.published %}
-                    <tr>
-                        <td>{{ event.date }}</td>
-                        <td>{{ event.start_time }}</td>
-                        <td>{{ event.end_time }}</td>
-                        <td>{{ event.venue }}</td>
-                        <td>{{ event.type }}</td>
-                        <td>{{ event.name }}</td>
-                        <td>{% for performer in event.performers.all %}
+                    <div class="row border">
+                        <div class="col-3 col-lg-2 py-1">{{ event.date|date:"D j M"  }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.start_time|time:"H:i" }}-{{ event.end_time|time:"H:i" }}</div>
+                        <div class="col-6 col-lg-2 py-1">{{ event.name }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.type }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.venue }}</div>
+                        <div class="col-6 col-lg-2 py-1">{% for performer in event.performers.all %}
                             {% if performer.biog %}
                                 <a href="{% url 'performer' performer.id %}">{{ performer }}<br></a>
                             {% else %}
                                 {{ performer }}<br>
                             {% endif %}
-                        {% endfor %}</td>
-                    </tr>
+                        {% endfor %}</div>
+                    </div>
                 {% endif %}
             {% endfor %}
-        </table>
+        </div>
 
 {% endblock %}
