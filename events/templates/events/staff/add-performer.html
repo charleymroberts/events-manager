@@ -3,9 +3,9 @@
 {% block two %}
     <div class="container">
         <h1>Add new performer</h1>
-        <p><a href="/dashboard">Back to dashboard</a></p>
-        <p><a href="/all-performers">Back to performers list</a></p>
-        <form method="POST">
+        <p><a href="{% url 'dashboard' %}">Back to dashboard</a></p>
+        <p><a href="{% url 'all-performers' %}">Back to performers list</a></p>
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 {{ form.as_table }}

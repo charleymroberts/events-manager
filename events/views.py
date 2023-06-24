@@ -133,7 +133,7 @@ def add_event(request):
 @permission_required("events.add_performer", raise_exception=True)
 def add_performer(request):
     if request.method == 'POST':
-        form = PerformerForm(request.POST)
+        form = PerformerForm(request.POST, request.FILES)
         if form.is_valid:
             form.save()
             messages.success(request, "Performer added successfully")
@@ -184,7 +184,7 @@ def edit_event(request, event_id):
 def edit_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     if request.method == 'POST':
-        form = PerformerForm(request.POST, instance=performer)
+        form = PerformerForm(request.POST, request.FILES, instance=performer)
         if form.is_valid():
             form.save()
             messages.success(request, "Performer edited successfully")

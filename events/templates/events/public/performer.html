@@ -3,16 +3,25 @@
 {% block two %}
     <input type=button value="Back" onClick="javascript:history.go(-1);">
 
-    <h2>{{ performer.name }}</h2>
-    {% if performer.biog %}
-        <p>{{ performer.biog }}</p>
-    {% else %}
-        <p>{{ performer.name }} is behind on their admin and hasn't sent us their information yet. Naughty human(s).</p>
-    {% endif %}
-    {% if performer.weblink %}
-    <p>{{ performer.weblink }}</p>
-    {% endif %}
-
+<div class="container">
+    <div class="row">
+        <h2>{{ performer.name }}</h2>
+        <div class="col-md-6">
+            <div class="col-md-6">
+        {% if performer.photo %}
+            <img src="{{ performer.photo.url }}">
+        {% endif %}
+        </div>
+        {% if performer.biog %}
+            <p>{{ performer.biog }}</p>
+        {% else %}
+            <p>{{ performer.name }} is behind on their admin and hasn't sent us their information yet. Naughty human(s).</p>
+        {% endif %} {% if performer.weblink %}
+            <p>{{ performer.weblink }}</p>
+        {% endif %}
+        </div>
+    </div>
+</div>
     <h3>All events featuring {{ performer.name }}</h3>
     {% include 'events/public/display-published-events.html' %}
 
