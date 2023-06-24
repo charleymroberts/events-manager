@@ -7,11 +7,11 @@
     <div class="row">
         <h2>{{ performer.name }}</h2>
         <div class="col-md-6">
-            <div class="col-md-6">
         {% if performer.photo %}
             <img src="{{ performer.photo.url }}">
         {% endif %}
         </div>
+        <div class="col-md-6">
         {% if performer.biog %}
             <p>{{ performer.biog }}</p>
         {% else %}
