@@ -20,3 +20,13 @@ h1 {
 .th {
     font-weight: bold;
 }
+
+.draft {
+    color: red;
+    font-weight: bold;
+}
+
+.published {
+    color: green;
+    font-weight: bold;
+}

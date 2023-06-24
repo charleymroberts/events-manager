@@ -1,15 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add new event - Festival Events Manager</title>
-</head>
-<body>
+{% extends 'base_staff.html' %}
+
+{% block two %}
+<div class="container">
     <h1>Add new event</h1>
-    <p><a href="/all-events/">Back to events list</a></p>
+    <p><a href="{% url 'all-events' %}">Back to events list</a></p>
 
     <form method="POST" action="/add-event/">
         {% csrf_token %}
@@ -18,5 +12,5 @@
         </table>
         <button type="submit">Add event</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

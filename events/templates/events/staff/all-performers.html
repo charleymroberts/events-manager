@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All performers - Festival Events Manager</title>
-</head>
-<body>
+{% extends 'base_staff.html' %}
+
+{% block two %}
     <h1>Performers</h1>
     <p><a href="/dashboard">Back to dashboard</a></p>
     <a href="/add-performer">Add new performer</a>
@@ -20,7 +16,7 @@
             <th>Name</th>
             <th>Biog</th>
             <th>Photo</th>
-            <th>Web link</th>
+            <th>Link</th>
         </tr>
         {% for performer in performers %}
         <tr>
@@ -35,7 +31,11 @@
                     {% else %}
                         <td>no</td>
                     {% endif %}
-                <td>{{ performer.weblink }}</td>
+                    {% if performer.weblink %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
                 <td>
                     <a href="/edit-performer/{{ performer.id }}">
                         Edit
@@ -44,5 +44,4 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}

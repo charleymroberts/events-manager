@@ -14,13 +14,15 @@
     <h1 class="display-2 p-2 text-center" style="margin-bottom: 0px;">The Summer Folk Festival</h1>
 </div>
 
+
 {% block one %}{% endblock %}
+
 
 <div class="row m-1 text-end">
     {% if user.is_authenticated %}
         <p style="margin-bottom: 0.25rem;">Currently logged in as {{ user.username }} <a href="/accounts/logout">Logout</a></p>
         {% if user.is_staff %}
-            <p style="margin-bottom: 0.25rem;"><a href="{% url 'dashboard' %}">View admin dashboard</a></p>
+            <p style="margin-bottom: 0.25rem;"><a href="{% url 'dashboard' %}">Go to admin dashboard</a></p>
         {% endif %}
     {% else %}
         <p style="margin-bottom: 0.25rem;"><a href="/accounts/login">Login</a></p>

@@ -49,10 +49,10 @@ def view_by_performer(request):
 
 def view_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
-    # events = Event.objects.get(performer)
+    events = performer.event_set.all()
     context = {
         'performer': performer,
-        # 'events': events
+        'events': events
     }
     return render(request, 'events/public/performer.html', context)
 

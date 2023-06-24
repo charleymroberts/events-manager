@@ -1,0 +1,28 @@
+      <div class="container">
+            <div class="row border th">
+                <div class="col-3 col-lg-2 py-1">Date</div>
+                <div class="col-3 col-lg-2 py-1">Times</div>
+                <div class="col-6 col-lg-2 py-1">Event</div>
+                <div class="col-3 col-lg-2 py-1">Type</div>
+                <div class="col-3 col-lg-2 py-1">Venue</div>
+                <div class="col-6 col-lg-2 py-1">Performers</div>
+            </div>
+            {% for event in events %}
+                {% if event.published %}
+                    <div class="row border">
+                        <div class="col-3 col-lg-2 py-1">{{ event.date|date:"D j M"  }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.start_time|time:"H:i" }}-{{ event.end_time|time:"H:i" }}</div>
+                        <div class="col-6 col-lg-2 py-1">{{ event.name }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.type }}</div>
+                        <div class="col-3 col-lg-2 py-1">{{ event.venue }}</div>
+                        <div class="col-6 col-lg-2 py-1">{% for performer in event.performers.all %}
+                            {% if performer.biog %}
+                                <a href="{% url 'performer' performer.id %}">{{ performer }}<br></a>
+                            {% else %}
+                                {{ performer }}<br>
+                            {% endif %}
+                        {% endfor %}</div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+      </div>

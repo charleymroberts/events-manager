@@ -1,14 +1,28 @@
 {% extends 'base.html' %}
 
 {% block one %}
-    <nav>
-<!--        <p>Manage:</p>-->
-        <p><a href="{% url 'all-events' %}">Events</a></p>
-        <p><a href="{% url 'all-performers' %}">Performers</a></p>
-        <p><a href="{% url 'all-venues' %}">Venues</a></p>
-        <p><a href="{% url 'events-programme' %}">View public site</a></p>
-    </nav>
+
+<nav class="navbar navbar-expand-md">
+    <div class="container-xxl">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+            <ul class="navbar-nav">
+                <li class="p-2"><a class="menu-item" href="{% url 'all-events' %}">Events</a></li>
+                <li class="p-2"><a href="{% url 'all-performers' %}">Performers</a></li>
+                <li class="p-2"><a href="{% url 'all-venues' %}">Venues</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
 {% endblock %}
+
 {% block two %}
 
 {% endblock %}

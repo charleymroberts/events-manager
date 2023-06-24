@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add new venue - Festival Events Manager</title>
-</head>
-<body>
+{% extends 'base_staff.html' %}
+
+{% block two %}
     <h1>Add new venue</h1>
     <p><a href="/all-venues">Back to venues list</a></p>
     <form method="POST" action="/add-venue/">
@@ -14,5 +10,4 @@
         </table>
         <button type="submit">Add venue</button>
     </form>
-</body>
-</html>
+{% endblock %}

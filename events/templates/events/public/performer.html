@@ -1,6 +1,7 @@
 {% extends 'base_public.html' %}
 
 {% block two %}
+    <input type=button value="Back" onClick="javascript:history.go(-1);">
 
     <h2>{{ performer.name }}</h2>
     {% if performer.biog %}
@@ -11,6 +12,8 @@
     {% if performer.weblink %}
     <p>{{ performer.weblink }}</p>
     {% endif %}
-    <input type=button value="Back" onClick="javascript:history.go(-1);">
+
+    <h3>All events featuring {{ performer.name }}</h3>
+    {% include 'events/public/display-published-events.html' %}
 
 {% endblock %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add performer - Festival Events Manager</title>
-</head>
-    <body>
+{% extends 'base_staff.html' %}
+
+{% block two %}
+    <div class="container">
         <h1>Add new performer</h1>
         <p><a href="/dashboard">Back to dashboard</a></p>
         <p><a href="/all-performers">Back to performers list</a></p>
@@ -15,5 +12,5 @@
             </table>
             <button type="submit">Add performer</button>
         </form>
-    </body>
-</html>
+    </div>
+{% endblock %}

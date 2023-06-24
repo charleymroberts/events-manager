@@ -1,17 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All Events - Festival Events Manager</title>
-</head>
+{% extends 'base_staff.html' %}
+
+{% block title %}All events - organiser view{% endblock %}
+
+{% block two %}
 <body>
+<div class="row text-center py-2">
     <h1>All Events - organiser view</h1>
-    <a href="/dashboard">Back to dashboard</a>
-    <p>List of all events, including both draft and published events. Only events marked 'published' are visible to the public.</p>
-    <a href="/add-event/">Add new event</a>
+    <p>Note: Only events marked 'public' are visible to the public.</p>
+    <a href="{% url 'add-event' %}">Add new event</a>
+
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -19,44 +16,10 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <table>
-            <tr>
-                <th>Date</th>
-                <th>Start time</th>
-                <th>Finish time</th>
-                <th>Venue</th>
-                <th>Type of event</th>
-                <th>Event name</th>
-                <th>Performers</th>
-                <th>Draft/Published</th>
-            </tr>
-            {% for event in events %}
-            <tr>
-                <td>{{ event.date|date:"D j M" }}</td>
-                <td>{{ event.start_time|time:"H:i" }}</td>
-                <td>{{ event.end_time|time:"H:i" }}</td>
-                <td>{{ event.venue }}</td>
-                <td>{{ event.type }}</td>
-                <td>{{ event.name }}</td>
-                <td>{% for performer in event.performers.all %}
-                        {% if performer.biog %}
-                            <a href="/performer/{{ performer.id }}">{{ performer }}<br></a>
-                        {% else %}
-                            {{ performer }}<br>
-                        {% endif %}
-                    {% endfor %}</td>
-                {% if event.published %}
-                    <td>Published</td>
-                {% else %}
-                    <td>Draft</td>
-                {% endif %}
-                <td>
-                    <a href="/edit-event/{{ event.id }}">
-                        Edit
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
-    </table>
+</div>
+
+
+    {% include 'events/staff/display-all-events.html' %}
+
 </body>
-</html>
+{% endblock %}

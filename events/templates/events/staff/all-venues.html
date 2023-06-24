@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Venues</title>
-</head>
-<body>
+{% extends 'base_staff.html' %}
+
+{% block two %}
     <h1>Venues</h1>
     <p><a href="/dashboard">Back to dashboard</a></p>
     <a href="/add-venue/">Add venue</a>
@@ -48,6 +44,4 @@
             </tr>
             {% endfor %}
     </table>
-
-</body>
-</html>
+{% endblock %}
