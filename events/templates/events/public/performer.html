@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <h2>{{ performer.name }}</h2>
-        <div class="col-md-6 object-fit-scale">
+        <div class="col-md-6 object-fit-contain">
         {% if performer.photo %}
             <img src="{{ performer.photo.url }}">
         {% endif %}
