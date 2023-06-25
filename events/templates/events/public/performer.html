@@ -6,12 +6,12 @@
 <div class="container">
     <div class="row">
         <h2>{{ performer.name }}</h2>
-        <div class="col-md-6 object-fit-contain">
+        <div class="col-md-5 img-fluid">
         {% if performer.photo %}
             <img src="{{ performer.photo.url }}">
         {% endif %}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
         {% if performer.biog %}
             <p>{{ performer.biog }}</p>
         {% else %}
