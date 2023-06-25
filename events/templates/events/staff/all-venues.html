@@ -1,9 +1,9 @@
 {% extends 'base_staff.html' %}
 
 {% block two %}
+<div class="row justify-content-center text-center mb-3">
     <h1>Venues</h1>
-    <p><a href="/dashboard">Back to dashboard</a></p>
-    <a href="/add-venue/">Add venue</a>
+    <a href="{% url 'add-venue' %}" class="btn btn-primary col-3 col-lg-2">Add new venue</a>
 
     {% if messages %}
     <ul class="messages">
@@ -12,17 +12,23 @@
         {% endfor %}
     </ul>
     {% endif %}
+</div>
 
-    <table>
+    <table class="table">
+        <thead>
             <tr>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Step-free?</th>
-                <th>Accessible toilets?</th>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Step-free?</th>
+                <th scope="col">Accessible toilets?</th>
             </tr>
+        </thead>
+        <tbody>
             {% for venue in venues %}
-            <tr>
-                <td>{{ venue.name }}</td>
+            <tr scope="row">
+                <td>{{ venue.name }}<br>
+                <a href="/edit-venue/{{ venue.id }}">Edit venue</a>
+                </td>
                 <td>{{ venue.location }}</td>
                 {% if venue.stepfree %}
                     <td>yes</td>
@@ -34,14 +40,9 @@
                 {% else %}
                     <td>no</td>
                 {% endif %}
-                <td>
-                    <a href="/edit-venue/{{ venue.id }}">Edit
-                    </a>
-                </td>
-                  <td>
-
-                </td>
             </tr>
             {% endfor %}
+        </tbody>
     </table>
+
 {% endblock %}

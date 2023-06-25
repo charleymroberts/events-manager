@@ -1,16 +1,16 @@
 {% extends 'base_staff.html' %}
 
+{% load django_bootstrap5 %}
+
 {% block two %}
-<div class="container">
+
     <h1>Add new event</h1>
     <p><a href="{% url 'all-events' %}">Back to events list</a></p>
 
     <form method="POST" action="/add-event/">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit">Add event</button>
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Add event" %}
     </form>
-</div>
+
 {% endblock %}

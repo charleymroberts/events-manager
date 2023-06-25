@@ -10,7 +10,11 @@
             Click on a performer name to see more about them.</p>
 
         {% for performer in performers %}
-            <p><a href="{% url 'performer' performer.id %}">{{ performer.name }}</a></p>
+            {% if performer.biog or performer.photo or performer.weblink %}
+                <p><a href="{% url 'performer' performer.id %}">{{ performer.name }}</a></p>
+            {% else %}
+                <p>{{ performer.name }}</p>
+            {% endif %}
         {% endfor %}
 </div>
 

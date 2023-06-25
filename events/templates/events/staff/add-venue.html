@@ -1,13 +1,13 @@
 {% extends 'base_staff.html' %}
 
+{% load django_bootstrap5 %}
+
 {% block two %}
     <h1>Add new venue</h1>
-    <p><a href="/all-venues">Back to venues list</a></p>
+    <p><a href="{% url 'all-venues' %}">Back to venues list</a></p>
     <form method="POST" action="/add-venue/">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit">Add venue</button>
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Add venue" %}
     </form>
 {% endblock %}

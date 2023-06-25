@@ -1,4 +1,6 @@
 {% load i18n %}
+
+{% comment %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +11,12 @@
     {% endblock %}
   </head>
   <body>
+{% endcomment %}
+
+{% extends 'events/templates/base_public.html' %}
+
+{% block two %}
+
     {% block body %}
 
     {% if messages %}
@@ -39,5 +47,10 @@
     {% endblock %}
     {% block extra_body %}
     {% endblock %}
+
+{% endblock %}
+
+{% comment %}
   </body>
 </html>
+{% endcomment %}

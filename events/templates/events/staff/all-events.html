@@ -3,11 +3,11 @@
 {% block title %}All events - organiser view{% endblock %}
 
 {% block two %}
-<body>
-<div class="row text-center py-2">
+
+<div class="row text-center py-2 justify-content-center">
     <h1>All Events - organiser view</h1>
-    <p>Note: Only events marked 'public' are visible to the public.</p>
-    <a href="{% url 'add-event' %}">Add new event</a>
+    <p>Note: Events marked 'draft' are <strong>not</strong> visible on the public events programme.</p>
+    <a href="{% url 'add-event' %}" class="btn btn-primary col-5 col-sm-3 col-lg-2 mb-2">Add new event</a>
 
     {% if messages %}
     <ul class="messages">
@@ -17,9 +17,7 @@
     </ul>
     {% endif %}
 </div>
-
-
+<div>
     {% include 'events/staff/display-all-events.html' %}
-
-</body>
+</div>
 {% endblock %}

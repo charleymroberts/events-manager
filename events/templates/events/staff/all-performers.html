@@ -1,9 +1,9 @@
 {% extends 'base_staff.html' %}
 
 {% block two %}
+<div class="row text-center justify-content-center">
     <h1>Performers</h1>
-    <p><a href="/dashboard">Back to dashboard</a></p>
-    <a href="/add-performer">Add new performer</a>
+    <a href="{% url 'add-performer' %}" class="btn btn-primary col-5 col-sm-4 col-lg-2 text-center mb-3">Add performer</a>
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -11,7 +11,10 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <table>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+    <table class="table">
         <tr>
             <th>Name</th>
             <th>Biog</th>
@@ -20,7 +23,10 @@
         </tr>
         {% for performer in performers %}
         <tr>
-                <td>{{ performer.name }}</td>
+                <td><strong>{{ performer.name }}</strong><br>
+                    <a href="/edit-performer/{{ performer.id }}">
+                        Edit performer
+                    </a></td>
                     {% if performer.biog %}
                         <td>yes</td>
                     {% else %}
@@ -32,16 +38,13 @@
                         <td>no</td>
                     {% endif %}
                     {% if performer.weblink %}
-                        <td>Yes</td>
+                        <td>yes</td>
                     {% else %}
-                        <td>No</td>
+                        <td>no</td>
                     {% endif %}
-                <td>
-                    <a href="/edit-performer/{{ performer.id }}">
-                        Edit
-                    </a>
-                </td>
         </tr>
         {% endfor %}
     </table>
+    </div>
+</div>
 {% endblock %}

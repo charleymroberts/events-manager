@@ -1,28 +1,27 @@
 {% extends 'base_public.html' %}
 
 {% block two %}
-    <input type=button value="Back" onClick="javascript:history.go(-1);">
 
 <div class="container">
-    <div class="row">
+    <input type=button value="Back" onClick="javascript:history.go(-1);">
+    <div class="row my-3">
         <h2>{{ performer.name }}</h2>
+        <div class="col-md-7">
+        {% if performer.biog %}
+            <p>{{ performer.biog }}</p>
+        {% else %}
+            <p>Info coming soon!</p>
+        {% endif %} {% if performer.weblink %}
+            <p>More info at: <a href="{{ performer.weblink }}" target="_blank" alt="link to this performer's website or social media page">{{ performer.weblink }}</a></p>
+        {% endif %}
+        </div>
         <div class="col-md-5">
         {% if performer.photo %}
             <img class="img-fluid" src="{{ performer.photo.url }}">
         {% endif %}
         </div>
-        <div class="col-md-7">
-        {% if performer.biog %}
-            <p>{{ performer.biog }}</p>
-        {% else %}
-            <p>{{ performer.name }} is behind on their admin and hasn't sent us their information yet. Naughty human(s).</p>
-        {% endif %} {% if performer.weblink %}
-            <p>{{ performer.weblink }}</p>
-        {% endif %}
-        </div>
     </div>
-</div>
     <h3>All events featuring {{ performer.name }}</h3>
     {% include 'events/public/display-published-events.html' %}
-
+</div>
 {% endblock %}

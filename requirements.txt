@@ -7,6 +7,7 @@ defusedxml==0.7.1
 dj3-cloudinary-storage
 Django==4.2.1
 django-allauth==0.54.0
+django-bootstrap5
 dj_database_url
 gunicorn
 idna==3.4

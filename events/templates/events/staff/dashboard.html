@@ -2,9 +2,53 @@
 
 {% block two %}
 
-        <h1>Dashboard</h1>
-        <p>Welcome, {{ user.username }}</p>
-        <h2>Manage:</h2>
+  <div class="container-md px-4 py-3" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Dashboard</h2>
+    <p>Welcome, {{ user.username }}!</p>
+    <div class="row g-4 py-3 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+          <i class="bi bi-calendar2-day"></i>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Events</h3>
+              <p>View your events list, create new events or edit existing ones</p>
+          <a href="{% url 'all-events' %}" class="btn btn-primary">
+            Events
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"/></svg>
+            <i class="bi bi-person-square"></i>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Performers</h3>
+          <p>Add new performers or update performers' biogs, photos and web links</p>
+          <a href="{% url 'all-performers' %}" class="btn btn-primary">
+            Performers
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"/></svg>
+            <i class="bi bi-buildings"></i>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Venues</h3>
+          <p>Add or update venue details</p>
+          <a href="{% url 'all-venues' %}" class="btn btn-primary">
+            Venues
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 <!--        {% if messages %}-->
 <!--        <ul class="messages">-->
 <!--            {% for message in messages %}-->
@@ -12,9 +56,3 @@
 <!--            {% endfor %}-->
 <!--        </ul>-->
 <!--        {% endif %}-->
-        <p><a href="{% url 'all-events' %}">Events</a></p>
-        <p><a href="{% url 'all-performers' %}">Performers</a></p>
-        <p><a href="{% url 'all-venues' %}">Venues</a></p>
-        <p><a href="{% url 'events-programme' %}">View public site</a></p>
-
-{% endblock %}
