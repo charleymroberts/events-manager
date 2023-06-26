@@ -1,12 +1,18 @@
 {% extends 'base_public.html' %}
 
-{% block two %}
+{% block homepage %}
 
-<h1>Welcome to The Summer Folk Festival!</h1>
-
-<p><a href="{% url 'events-programme' %}">View all events</a></p>
-<p><a href="{% url 'by-day' %}">Events by day</a></p>
-<p><a href="{% url 'by-performer' %}">Performers</a></p>
-<p><a href="{% url 'by-venue' %}">Venues</a></p>
+<div class="container-fluid jumbotron text-center bg-body-secondary d-flex flex-column align-items-center justify-content-center" style="padding-right: 0px; padding-left:0px;">
+    <div class="container py-5">
+      <h1 class="welcome-text display-5">Welcome to The Summer Folk Festival!</h1>
+      <p class="col-lg-8 mx-auto lead welcome-text">
+        We're so excited for you to see all the events we've got in store for you this year. Have a browse of the programme and start making plans!
+      </p>
+    </div>
+      <a href="{% url 'events-programme' %}" class="btn btn-primary btn-lg px-3 rounded-pill" type="button" id="homepage-button">
+        View events programme
+          <i class="bi bi-arrow-right mx-1"></i>
+      </a>
+</div>
 
 {% endblock %}

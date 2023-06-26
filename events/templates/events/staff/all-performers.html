@@ -2,18 +2,11 @@
 
 {% block two %}
 <div class="row text-center justify-content-center">
-    <h1>Performers</h1>
+    <h1>All Performers</h1>
     <a href="{% url 'add-performer' %}" class="btn btn-primary col-5 col-sm-4 col-lg-2 text-center mb-3">Add performer</a>
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
 </div>
 <div class="row justify-content-center">
-    <div class="col-lg-6">
+    <div class="col-md-9 col-lg-6">
     <table class="table">
         <tr>
             <th>Name</th>

@@ -1,6 +1,6 @@
+{% extends 'base.html' %}
 
-
-
+{% load django_bootstrap5 %}
 
 {% load i18n %}
 {% load account socialaccount %}
@@ -9,13 +9,13 @@
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-
+{% block two %}
 
 {% block content %}
 
+<div class="row col-md-9 col-lg-6">
 
-
-<h1>{% trans "Sign In" %}</h1>
+<h1>{% trans "Login" %}</h1>
 
 {% get_providers as socialaccount_providers %}
 
@@ -43,14 +43,17 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+  {% bootstrap_form form %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
 <!--  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>-->
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+<!--  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>-->
+  {% bootstrap_button button_type="submit" content="Login" %}
 </form>
-<h1>Hello World</h1>
+
+</div>
 
 {% endblock %}
 
+{% endblock %}

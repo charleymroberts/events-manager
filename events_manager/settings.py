@@ -45,10 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django.contrib.sites',
+    'events',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'events',
 ]
 
 SITE_ID = 1

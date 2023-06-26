@@ -34,8 +34,20 @@ h1 {
     color: #363837;
 }
 
+.jumbotron{
+    background-image: url('images/shrews-35.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
 .th {
     font-weight: bold;
+}
+
+#homepage-button {
+    background-color: #f2d80f;
+    color: #363837;
 }
 
 .draft {
@@ -46,4 +58,14 @@ h1 {
 .published {
     color: green;
     font-weight: bold;
+}
+
+.welcome-text {
+    color: #000;
+    vertical-align: center;
+}
+
+.bob {
+    text-decoration: none;
+    color: #363837;
 }

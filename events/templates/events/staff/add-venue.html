@@ -3,11 +3,14 @@
 {% load django_bootstrap5 %}
 
 {% block two %}
+<div class="row justify-content-center mx-2">
+    <div class="col-md-9 col-lg-6">
     <h1>Add new venue</h1>
-    <p><a href="{% url 'all-venues' %}">Back to venues list</a></p>
     <form method="POST" action="/add-venue/">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% bootstrap_button button_type="submit" content="Add venue" %}
     </form>
+    </div>
+</div>
 {% endblock %}

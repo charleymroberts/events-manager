@@ -1,7 +1,5 @@
 {% extends 'base_public.html' %}
 
-{% block title %}{{ venue.name }}{% endblock %}
-
 {% block two %}
 
 <div class="row col-md-6">
@@ -11,7 +9,7 @@
     Accessible toilets? {% if venue.accessible_toilets %} Yes {% else %} No {% endif %}</p>
 </div>
 
-<h2>All events in {{ venue.name }}</h2>
+<h3>All events in {{ venue.name }}</h3>
 
 {% include 'events/public/display-published-events.html' %}
 
