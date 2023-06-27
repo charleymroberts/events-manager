@@ -1,13 +1,14 @@
 {% extends 'base_public.html' %}
 
-{% block title %}Events programme: The Summer Folk Festival{% endblock %}
+{% block title %}Events programme - The Summer Folk Festival{% endblock %}
 
 {% block two %}
 
-    <h2 class="display-5 text-center p-2">Events Programme: The Summer Folk Festival</h2>
-    <p class="lead text-center p-2">Here are all the finalised events so far. Keep checking back for more as they're added!</p>
+<h2 class="display-5 text-center p-2">Events Programme: The Summer Folk Festival</h2>
+<p class="lead text-center p-2">Here are all the finalised events so far. Keep checking back for more as they're
+    added!</p>
 
-    {% include 'events/public/display-published-events.html' %}
+{% include 'events/public/display-published-events.html' %}
 
 {% endblock %}
 

@@ -3,41 +3,42 @@
 {% block two %}
 <div class="row text-center justify-content-center">
     <h1>All Performers</h1>
-    <a href="{% url 'add-performer' %}" class="btn btn-primary col-5 col-sm-4 col-lg-2 text-center mb-3">Add performer</a>
+    <a href="{% url 'add-performer' %}" class="btn btn-primary col-5 col-sm-4 col-lg-2 text-center mb-3">Add
+        performer</a>
 </div>
 <div class="row justify-content-center">
     <div class="col-md-9 col-lg-6">
-    <table class="table">
-        <tr>
-            <th>Name</th>
-            <th>Biog</th>
-            <th>Photo</th>
-            <th>Link</th>
-        </tr>
-        {% for performer in performers %}
-        <tr>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Biog</th>
+                <th>Photo</th>
+                <th>Link</th>
+            </tr>
+            {% for performer in performers %}
+            <tr>
                 <td><strong>{{ performer.name }}</strong><br>
                     <a href="{% url 'edit-performer' performer.id %}">
                         Edit performer
                     </a></td>
-                    {% if performer.biog %}
-                        <td>yes</td>
-                    {% else %}
-                        <td>no</td>
-                    {% endif %}
-                    {% if performer.photo %}
-                        <td>yes</td>
-                    {% else %}
-                        <td>no</td>
-                    {% endif %}
-                    {% if performer.weblink %}
-                        <td>yes</td>
-                    {% else %}
-                        <td>no</td>
-                    {% endif %}
-        </tr>
-        {% endfor %}
-    </table>
+                {% if performer.biog %}
+                <td>yes</td>
+                {% else %}
+                <td>no</td>
+                {% endif %}
+                {% if performer.photo %}
+                <td>yes</td>
+                {% else %}
+                <td>no</td>
+                {% endif %}
+                {% if performer.weblink %}
+                <td>yes</td>
+                {% else %}
+                <td>no</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </div>
 {% endblock %}

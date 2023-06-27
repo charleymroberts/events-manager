@@ -8,26 +8,22 @@
 
 {% block two %}
 
-{% block content %}
-
 <div class="row col-md-9 col-lg-6">
 
-<h1>{% trans "Sign Up" %}</h1>
+    <h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}This feature is currently only available to approved staff users.<br>
-  Already have an account? Then please <a href="{{ login_url }}">log in</a>.{% endblocktrans %}</p>
+    <p>{% blocktrans %}This feature is currently only available to approved staff users.<br>
+        Already have an account? Then please <a href="{{ login_url }}">log in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {% bootstrap_form form %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  {% bootstrap_button button_type="submit" content="Sign up" %}
-</form>
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        {% bootstrap_button button_type="submit" content="Sign up" %}
+    </form>
 
 </div>
-
-{% endblock %}
 
 {% endblock %}

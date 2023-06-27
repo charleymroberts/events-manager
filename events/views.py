@@ -32,13 +32,6 @@ def public_events_programme(request):
     }
     return render(request, 'events/public/events-programme.html', context)
 
-#delete this one when layout testing finished
-def public_events_programme_duplicate(request):
-    events = Event.objects.all()
-    context = {
-        'events': events,
-    }
-    return render(request, 'events/public/events-programme-duplicate.html', context)
 
 def view_by_performer(request):
     performers = Performer.objects.all()

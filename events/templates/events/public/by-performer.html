@@ -1,24 +1,26 @@
 {% extends 'base_public.html' %}
 
-{% block title%}Performer info - The Summer Folk Festival{% endblock %}
+{% block title%}Performers - The Summer Folk Festival{% endblock %}
 
 {% block two %}
 
 <div class="container-md">
-<div class="row text-center justify-content-center">
-    <h2 class="display-6">Performers</h2>
+    <div class="row text-center justify-content-center">
+        <h2 class="display-6">Performers</h2>
         <p>We are very excited to have all these great performers appearing at the festival!
             Click on a performer name to see more about them.</p>
 
         {% for performer in performers %}
 
-            {% if performer.biog or performer.photo or performer.weblink %}
-            <a class="bob btn btn-warning btn-lg col-9 col-sm-6 col-md-4 col-lg-3 rounded-pill m-2" href="{% url 'performer' performer.id %}">
-                {{ performer.name }}
-            </a>
-            {% endif %}
+        {% if performer.biog or performer.photo or performer.weblink %}
+        <a class="bob btn btn-warning btn-lg col-9 col-sm-6 col-md-4 col-lg-3 rounded-pill m-2"
+           href="{% url 'performer' performer.id %}">
+            {{ performer.name }}
+        </a>
+        {% endif %}
 
         {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

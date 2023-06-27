@@ -51,7 +51,6 @@ urlpatterns = [
     path('staff/delete-performer/<performer_id>', views.delete_performer, name='delete-performer'),
     path('staff/delete-venue/<venue_id>', views.delete_venue, name='delete-venue'),
     path('events-programme/', views.public_events_programme, name='events-programme'),
-    path('events-programme-duplicate/', views.public_events_programme_duplicate, name='events-programme-duplicate'),
     path('performer/', views.view_by_performer, name='by-performer'),
     path('performer/<performer_id>', views.view_performer, name='performer'),
     path('venue/', views.view_by_venue, name='by-venue'),
