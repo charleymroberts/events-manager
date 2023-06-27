@@ -16,6 +16,21 @@ class EventForm(forms.ModelForm):
             'published'
         ]
 
+        widgets = {
+            'date': forms.DateInput(
+                format=('%Y-%m-%d'),
+                attrs={'type': 'date'}
+            ),
+            'start_time': forms.TimeInput(
+                format=('%H:%M'),
+                attrs={'type': 'time'}
+            ),
+            'end_time': forms.TimeInput(
+                format=('%H:%M'),
+                attrs={'type': 'time'}
+            ),
+        }
+
 
 class PerformerForm(forms.ModelForm):
     class Meta:
