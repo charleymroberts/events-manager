@@ -13,6 +13,10 @@ class Venue(models.Model):
         return self.name
 
 
+    class Meta:
+        ordering = ['name']
+
+
 class Performer(models.Model):
     name = models.CharField(max_length=100)
     biog = models.TextField(null=True, blank=True)
@@ -22,6 +26,9 @@ class Performer(models.Model):
     def __str__(self):
         return self.name
 
+
+    class Meta:
+        ordering = ['name']
 
 class Event(models.Model):
     date = models.DateField()
@@ -35,3 +42,7 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
+
+
+    class Meta:
+        ordering = ['date','start_time', 'venue__name']
