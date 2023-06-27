@@ -17,7 +17,7 @@
         {% for performer in performers %}
         <tr>
                 <td><strong>{{ performer.name }}</strong><br>
-                    <a href="/edit-performer/{{ performer.id }}">
+                    <a href="{% url 'edit-performer' performer.id %}">
                         Edit performer
                     </a></td>
                     {% if performer.biog %}

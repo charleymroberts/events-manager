@@ -20,7 +20,7 @@
             {% for venue in venues %}
             <tr>
                 <td><strong>{{ venue.name }}</strong><br>
-                <a href="/edit-venue/{{ venue.id }}">Edit venue</a>
+                <a href="{% url 'edit-venue' venue.id %}">Edit venue</a>
                 </td>
                 <td>{{ venue.location }}</td>
                 {% if venue.stepfree %}
