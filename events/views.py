@@ -121,7 +121,7 @@ def add_event(request):
         if form.is_valid:
             form.save()
             messages.success(request, "Event added successfully")
-            return redirect('/all-events/')
+            return redirect('all-events')
     form = EventForm()
     context = {
         'form': form
@@ -137,7 +137,7 @@ def add_performer(request):
         if form.is_valid:
             form.save()
             messages.success(request, "Performer added successfully")
-            return redirect('/all-performers/')
+            return redirect('all-performers')
     form = PerformerForm()
     context = {
         'form': form
@@ -153,7 +153,7 @@ def add_venue(request):
         if form.is_valid:
             form.save()
             messages.success(request, "Venue added successfully")
-            return redirect('/all-venues/')
+            return redirect('all-venues')
     form = VenueForm()
     context = {
         'form': form
@@ -170,7 +170,7 @@ def edit_event(request, event_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Event edited successfully")
-            return redirect('/all-events/')
+            return redirect('all-events')
     form = EventForm(instance=event)
     context = {
         'form': form,
@@ -188,7 +188,7 @@ def edit_performer(request, performer_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Performer edited successfully")
-            return redirect('/all-performers/')
+            return redirect('all-performers')
     form = PerformerForm(instance=performer)
     context = {
         'form': form,
@@ -206,7 +206,7 @@ def edit_venue(request, venue_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Venue edited successfully")
-            return redirect('/all-venues/')
+            return redirect('all-venues')
     form = VenueForm(instance=venue)
     context = {
         'form': form,
@@ -221,7 +221,7 @@ def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     event.delete()
     messages.success(request, "Event deleted")
-    return redirect('/all-events/')
+    return redirect('all-events')
 
 
 @login_required()
@@ -230,7 +230,7 @@ def delete_performer(request, performer_id):
     performer = get_object_or_404(Performer, id=performer_id)
     performer.delete()
     messages.success(request, "Performer deleted")
-    return redirect('/all-performers/')
+    return redirect('all-performers')
 
 
 @login_required()
@@ -242,4 +242,4 @@ def delete_venue(request, venue_id):
         messages.success(request, "Venue deleted")
     except IntegrityError as error:
         messages.warning(request, "You cannot delete this venue because it has events assigned to it. You must delete or assign the events to a different venue before you can delete this venue.")
-    return redirect('/all-venues/')
+    return redirect('all-venues')

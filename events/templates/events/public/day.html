@@ -2,8 +2,6 @@
 
 {% block two %}
 
-<input type=button value="Back" onClick="javascript:history.go(-1);">
-
 <div class="row text-center">
     {% for event in events %}
     <h2>Events on {{ event.date|date:"D j M" }}</h2>
