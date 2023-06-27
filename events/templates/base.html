@@ -27,7 +27,7 @@
 {% block one %}{% endblock %}
 {% block homepage %}{% endblock %}
 
-<div class="row m-1 text-end">
+<div class="row m-1 my-2 text-end">
     {% if user.is_authenticated %}
     <p style="margin-bottom: 0.25rem;">Currently logged in as {{ user.username }} <a class="btn btn-sm btn-warning" href="/accounts/logout">Logout</a>
     </p>
