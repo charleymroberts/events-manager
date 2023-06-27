@@ -35,7 +35,6 @@ h1 {
 }
 
 .jumbotron{
-    background-image: url('/static/events/images/shrews-35.png');
     background-size: cover;
     background-repeat: no-repeat;
     height: 500px;

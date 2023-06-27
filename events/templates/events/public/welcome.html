@@ -1,8 +1,8 @@
 {% extends 'base_public.html' %}
-
+{% load static %}
 {% block homepage %}
 
-<div class="container-fluid jumbotron text-center bg-body-secondary d-flex flex-column align-items-center justify-content-center" style="padding-right: 0px; padding-left:0px;">
+<div class="container-fluid jumbotron text-center bg-body-secondary d-flex flex-column align-items-center justify-content-center" style="padding-right: 0px; padding-left:0px; background-image: url({% static 'events/images/shrews-35.png' %});">
     <div class="container py-5">
       <h1 class="welcome-text display-5">Welcome to The Summer Folk Festival!</h1>
       <p class="col-lg-8 mx-auto lead welcome-text">
