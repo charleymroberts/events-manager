@@ -132,3 +132,57 @@ Public users can:
 -   Click through to information about each performer, including their photo, biography and link to their website or social media, and a list of all events they are appearing in
 -   View a list of venues
 -   Click through to information about each venue, including location and accessibility information, and a list of all events taking place in that venue
+
+### Staff pages
+
+**Homepage**
+
+![staff homepage](doc/images/screenshot-staff-homepage.png)
+
+- Dashboard clearly displaying the options available to the user.
+
+- Navbar providing easy navigation to each section.  Remains the same across the whole staff site. Is a different colour from the public site to provide visual cue to which section of the app the user is currently in.
+
+- Quick links to log in and out (also displays current login status), and switch between the staff and public sections of the app.  These remain the same across all parts of the app.
+
+Note:
+
+The ‘login’ link is also visible on the public site, and is visible to non-logged-in users, so that staff users can find it without the specific login URL. It is unobtrusive, and no harm can be done if a public user tries to sign up for an account, as a superuser needs to manually add the permissions required to view any of the staff pages.
+
+It is hoped that a public login function will be added as a future feature, so the login link remains in place in readiness for this.
+
+**All Events/Performers/Venues pages**
+
+Each page displays a list of information added so far under each category. 
+
+![the All pages](doc/images/the-all-pages.png)
+
+ - ‘Add’ buttons are clearly present in the top centre of the page.
+
+- ‘Edit’ links are positioned next to each piece of information.
+
+- On the ‘All Events’ page, ’draft’ and ‘public’ events are indicated with red and green bold text.
+
+**Add/Edit events/performers/venues pages**
+
+![add event form](doc/images/add-event-form.png)
+
+- The 'Add' and 'Edit' forms all have a simple design which aims to make information easy to input and ensure consistent input formats.
+
+- The 'Add Event' form has a date selector and time selectors to make sure users input data in a correct and consistent format.
+
+- The 'web link' field in the 'Add Performer' form automatically makes link text into clickable links.
+
+![delete alert](doc/images/delete-alert.png)
+
+- The delete button on each form is in red and positioned further away from the form than the add or edit button, to avoid accidental pressing of the wrong button. 
+
+- When pressed, the delete button pops up an alert, ‘Are you sure you want to delete this [event/venue/performer]?’ which the user must confirm in order to proceed.
+
+**Info boxes**
+
+![edit successful message](doc/images/edit-successful.png)
+
+The app displays messages throughout to confirm user interactions: 
+- information has been added, edited or deleted successfully.
+- the user has logged in or out.
