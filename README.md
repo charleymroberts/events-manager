@@ -106,4 +106,29 @@ The main UI/UX design considerations for this app are:
 | Consistent layout across pages | Ease of use / Intuitiveness |
 | Navigation options clearly presented on every page |  Ease of use / Intuitiveness |
 | Minimalistic style with few images | Makes app quicker to load, important if large numbers of people in same place (possibly in a field with poor signal) accessing it at same time |
-||Can be easily customised with customer festival's own branding / Fairly minimal style allows potential customer to imagine the app with their own branding
+||Can be easily customised with customer festival's own branding. A fairly minimal style allows potential customers to imagine the app with their own branding
+
+## Features
+
+### Summary of functionality
+
+Staff users can:
+
+-   Sign up for an account
+-   Log in and out of their account
+-   Add new events
+-   Edit events they've already added
+-   Set their events to 'public' once ready to be published to the public events programme
+-   View a list of all events (in draft and public form) added by all staff users
+-   Add venue details (name, location, accessibility information)
+-   Add performer details (name, biog, photo, web link)  
+    
+
+Public users can:
+
+-   View the full public events programme
+-   View a list of events on each day (one day per page)
+-   View a list of performers
+-   Click through to information about each performer, including their photo, biography and link to their website or social media, and a list of all events they are appearing in
+-   View a list of venues
+-   Click through to information about each venue, including location and accessibility information, and a list of all events taking place in that venue
