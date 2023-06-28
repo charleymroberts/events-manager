@@ -141,7 +141,7 @@ Public users can:
 
 - Dashboard clearly displaying the options available to the user.
 
-- Navbar providing easy navigation to each section.  Remains the same across the whole staff site. Is a different colour from the public site to provide visual cue to which section of the app the user is currently in.
+- Navbar providing easy navigation to each section.  Remains the same across the whole staff site.  Displays as a hamburger menu on small and medium-sized screens. Is a different colour from the public site to provide visual cue to which section of the app the user is currently in.
 
 - Quick links to log in and out (also displays current login status), and switch between the staff and public sections of the app.  These remain the same across all parts of the app.
 
@@ -157,7 +157,7 @@ Each page displays a list of information added so far under each category.
 
 ![the All pages](doc/images/the-all-pages.png)
 
- - ‘Add’ buttons are clearly present in the top centre of the page.
+- ‘Add’ buttons are clearly present in the top centre of the page.
 
 - ‘Edit’ links are positioned next to each piece of information.
 
@@ -186,3 +186,49 @@ Each page displays a list of information added so far under each category.
 The app displays messages throughout to confirm user interactions: 
 - information has been added, edited or deleted successfully.
 - the user has logged in or out.
+
+### Public pages
+
+**Landing page**
+
+![public landing page](doc/images/screenshot-public-homepage.png)
+
+- Landing page with concise explanation of what the site is for and a clear call to action.
+
+- Eyecatching image conveying a festival atmosphere (can be replaced with festival’s own images in real-life deployment).
+
+- Background behind the text to provide extra background/foreground contrast for accessibility.
+
+- Placeholder banner image making it clear whose the site is (in real-life deployment would be replaced with each festival’s own name/logo/branding). Banner image is a hyperlink back to the landing page (from all pages).
+
+- Navbar clearly displaying the user’s options, remains the same throughout the public site.  Displays as a hamburger menu on small and medium-sized screens.
+
+**Events programme page**
+
+ ![events programme image 1](doc/images/events-prog-1.PNG) ![events programme image 2](doc/images/events-prog-1.PNG)
+
+Programme information displayed using the Bootstrap grid layout. The layout used aims to make numerous pieces of information clear to read and understand.
+
+The same layout and appearance is replicated across other pages with events listings, to provide visual consistency for the user.
+
+**Events by day/performer/venue pages**
+
+These enable the user to quickly view specific information they are seeking.
+
+![enter image description here](doc/images/all-performers.PNG) ![enter image description here](doc/images/all-venues.PNG) ![enter image description here](doc/images/day-list.PNG)
+
+Index pages: 
+
+- Clear yellow buttons to display user options 
+
+- Buttons fade slightly on hover (on desktop/laptop) to indicate that they are clickable
+
+![enter image description here](doc/images/events-in-venue.PNG) ![enter image description here](doc/images/performer-info.PNG)
+
+The individual pages provide:
+
+- Events by day: a list of events on each day
+
+- Performer info: provides further details about each performer, and a list of all events featuring that performer
+
+- Venue info: provides location and some accessibility information, plus a list of events taking place there
