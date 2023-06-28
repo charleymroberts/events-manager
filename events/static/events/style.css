@@ -3,16 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @font-face {
     font-family: 'NeoRetroFill';
-    src: url('fonts/NEORF___-webfont.eot');
-    src: url('fonts/NEORF___-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/NEORF___-webfont.woff2') format('woff2'),
-         url('fonts/NEORF___-webfont.woff') format('woff'),
-         url('fonts/NEORF___-webfont.ttf') format('truetype'),
-         url('fonts/NEORF___-webfont.svg#neoretrofillregular') format('svg');
+    src: url('fonts/NEORF___-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 
 body {
     background-color: #edf4fa;
