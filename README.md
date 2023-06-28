@@ -4,9 +4,13 @@ Festival Events Manager is a web-based app which enables members of a festival's
 
 The app is displayed to users in two sections: one for staff users, and one for members of the public.
 
-[screenshots of both homepages]
+_Staff homepage on desktop and phone_
+![Staff homepage laptop and phone views](doc/images/screenshot-staff-homepage.png)
 
-A live version of the app can be viewed [on Heroku](https://festival-manager-2ef1a8933d4d.herokuapp.com/).
+_Public homepage on desktop and phone_
+![Public homepage laptop and phone views](doc/images/screenshot-public-homepage.png)
+
+A live version of the app can be accessed [on Heroku](https://festival-manager-2ef1a8933d4d.herokuapp.com/).
 
 ## Why this product is needed
 
@@ -71,6 +75,10 @@ Members of the public. More specifically, this includes:
 
 Demographic factors such as age and experience with technology could vary widely depending on the individual festival using the software.
 
+## Initial Planning
+
+The following processes took place before commencing any coding.
+
 ### User Stories
 
 The features of the app were planned by considering what the needs of a festival organiser or attendee would be in a real-life situation, thinking through what this user would therefore want to be able to do with the app, and then listing these needs as User Stories.
@@ -80,3 +88,22 @@ The User Stories used to plan this app can be viewed here:
 [User Stories as Google Sheet](https://docs.google.com/spreadsheets/d/115xDeqWRi2_llT213pvrN0uWyhkwoxC0/edit?usp=sharing&ouid=106676688339915491520&rtpof=true&sd=true) 
 
 [User Stories as GitHub Project Board](https://github.com/users/charleymroberts/projects/2/views/1)
+
+### Database models
+
+
+### User Interface design planning
+
+Initial wireframes were sketched on paper, based around a Bootstrap 12-column model of flexible layouts.
+
+The main UI/UX design considerations for this app are:
+
+| Design consideration | Reason needed |
+|--|--|
+| Mobile-first responsive design | Best practice |
+|  | Attendees will be accessing the programme on their phones during a festival |
+| Body text and layout clear to read | Lots of information being presented in the events programme, needs to be easily understood |
+| Consistent layout across pages | Ease of use / Intuitiveness |
+| Navigation options clearly presented on every page |  Ease of use / Intuitiveness |
+| Minimalistic style with few images | Makes app quicker to load, important if large numbers of people in same place (possibly in a field with poor signal) accessing it at same time |
+||Can be easily customised with customer festival's own branding / Fairly minimal style allows potential customer to imagine the app with their own branding
