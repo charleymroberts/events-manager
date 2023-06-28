@@ -205,7 +205,7 @@ The app displays messages throughout to confirm user interactions:
 
 **Events programme page**
 
- ![events programme image 1](doc/images/events-prog-1.PNG) ![events programme image 2](doc/images/events-prog-1.PNG)
+![events programme on phone](doc/images/events-prog-phone.png)
 
 Programme information displayed using the Bootstrap grid layout. The layout used aims to make numerous pieces of information clear to read and understand.
 
@@ -215,7 +215,7 @@ The same layout and appearance is replicated across other pages with events list
 
 These enable the user to quickly view specific information they are seeking.
 
-![enter image description here](doc/images/all-performers.PNG) ![enter image description here](doc/images/all-venues.PNG) ![enter image description here](doc/images/day-list.PNG)
+![all events venues performers pages](doc/images/the-all-pages-phone.png)
 
 Index pages: 
 
@@ -223,7 +223,7 @@ Index pages:
 
 - Buttons fade slightly on hover (on desktop/laptop) to indicate that they are clickable
 
-![enter image description here](doc/images/events-in-venue.PNG) ![enter image description here](doc/images/performer-info.PNG)
+![venue and performer individual pages](doc/images/venue-performer-pages.png)
 
 The individual pages provide:
 
