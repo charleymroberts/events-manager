@@ -2,11 +2,7 @@
 
 {% block two %}
 
-<div class="row text-center">
-    {% for event in events %}
-    <h2>Events on {{ event.date|date:"D j M" }}</h2>
-    {% endfor %}
-</div>
+<h2>Events on {{ event_date|date:"D j M" }}</h2>
 
 {% include 'events/public/display-published-events.html' %}
 

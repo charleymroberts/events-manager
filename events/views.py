@@ -82,7 +82,8 @@ def events_on_day(request, event_date):
     days = Event.objects.dates("date", "day")
     context = {
         'events': events,
-        'days': days
+        'days': days,
+        'event_date': event_date,
     }
     return render(request, 'events/public/day.html', context)
 
