@@ -35,7 +35,7 @@ which include this template as their base-->
     {% if user.is_authenticated %}
     <p style="margin-bottom: 0.25rem;">Currently logged in as {{ user.username }} <a class="btn btn-sm btn-warning" href="/accounts/logout">Logout</a>
     </p>
-    {% if user.is_staff %}
+    {% if perms.events.view_event %}
     <p style="margin-bottom: 0.25rem;"><a class="staff-nav-link" href="{% url 'dashboard' %}">Go to admin dashboard</a></p>
     <p style="margin-bottom: 0.25rem;"><a class="staff-nav-link" href="{% url 'welcome' %}">View public site</a></p>
     {% endif %}

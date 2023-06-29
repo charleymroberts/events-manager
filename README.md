@@ -166,7 +166,7 @@ The main UI/UX design considerations for this app are:
 
 - Dark font colours for the body (off-black #363837), navbar (dark grey #363b37) and jumbotron (black #000) text and an off-white body background colour (#edf4fa) were chosen to provide sufficient background/foreground contrast to be accessible. Link text was changed from the default bright blue to a darker blue (#082c99) in order to pass through the Lighthouse accessibility checker.
 
-- Banner and navbar fonts (Courgette and NeoRetroDraw) are fun and informal to reflect a fun festival atmosphere, while still being clearly legible.
+- Banner and navbar fonts (Courgette and NeoRetroFill) are fun and informal to reflect a fun festival atmosphere, while still being clearly legible.
 
 - Body font: Roboto was chosen as it is neutral and legible.  The main consideration is ease of reading a lot of information at once.
 
@@ -367,6 +367,8 @@ The testing process is documented in [Testing.md](Testing.md)
 
 ### Unfixed bugs
 
+**Login link on public pages**
+
 The ‘login’ link is visible on the public site, and is visible to non-logged-in users. 
 
 The original plan for the app included the ability for public users to log in and create a list of favourite events, so the link was added to public pages.  Additional permissions have already been added to the staff pages to prevent public users from seeing them when logged in.  However, this feature has been reassigned to a future implementation due to time constraints. 
@@ -379,15 +381,26 @@ It was therefore decided to leave the link in place rather than remove it, altho
 
 It is hoped that the public login function will be added as a future feature, so the link remains in place in readiness for this.
 
+**"placeholder" attribute in the HTML**
+
+The HTML checker produced an error saying that the attribute "placeholder" should not be used. 
+This is documented in more detail in the [Testing.md](Testing.md)  document.  
+
+It appears that the "placeholder" attribute is 
+generated within the code produced by django_bootstrap5, and has been added to the 'date', 'start time'
+and 'end time' fields in the forms on the 'add event' and 'edit event' pages, and is not possible to directly edit in the code.
+
+Due to time constraints, and the fact it does not actually affect the functionality of the form, this has been left for the next iteration when more time is available to research how to fix it. 
+
 ## Deployment process
 
 Deployment was carried out by following the walkthrough videos in the Code Institute course material 'Hello Django > Deployment'.
 
 ### Summary
 
-The deployed version is hosted by Heroku using gunicorn, with a PostGres database provided by Elephant SQL
+The deployed version is hosted by Heroku using gunicorn, with a PostgreSQL database provided by ElephantSQL.
 
-Static files and media uploads are uploaded to Cloudinary
+Static files and media uploads are uploaded to Cloudinary.
 
 `settings.py` takes deployment-specific configuration (database settings, Django secret key, cloudinary API credentials) from environment variables.  In the deployed version these are set using the Heroku config vars.
 
@@ -435,7 +448,7 @@ In particular, another user may wish to:
 
 - Edit the CSS file to add their own colour scheme
 
-- Add their own logos/banners etc. to the Static folder to add their own branding to the user interface
+- Add their own logos/banners etc. to the static folder to add their own branding to the user interface
 
 If wishing to deploy their version to Heroku, another user would need their own Heroku and Cloudinary accounts and their own PostgreSQL database (on ElephantSQL or similar).
 
