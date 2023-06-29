@@ -160,6 +160,8 @@ Public users can:
 
 ### Staff pages
 
+This section is likely to be used more often on desktop or laptop computer by staff working on inputting events data, so mainly used larger screen size screenshots are included here to illustrate.
+
 **Homepage**
 
 ![staff homepage](doc/images/screenshot-staff-homepage.png)
@@ -214,6 +216,8 @@ The app displays messages throughout to confirm user interactions:
 
 ### Public pages
 
+Users will be using the public section of the app mainly on their phones during a festival, so phone screen screenshots are included here to illustrate.
+
 **Landing page**
 
 ![public landing page](doc/images/screenshot-public-homepage.png)
@@ -257,3 +261,39 @@ The individual pages provide:
 - Performer info: provides further details about each performer, and a list of all events featuring that performer
 
 - Venue info: provides location and some accessibility information, plus a list of events taking place there
+
+### Future features
+
+There are various useful features which could be included in future iterations of this app, which were not able to be implemented within the timebox available for this version.
+
+- **Favourites**
+
+The main feature that would be implemented in a future iteration is the facility for public users to select events as ‘favourites', which would store them in a list of 'favourites' visible only to that user. This feature would be particularly valuable to users at a multi-day festival with many different events, to help them plan in advance which events they definitely did not want to miss.
+
+- **GDPR compliance**
+
+Before being launched as a real-world product the app would need to be made GDPR compliant, such as including a terms and conditions page, privacy policy (including stating how email and IP addresses are used) and cookies policy.
+
+- **Social media login**
+
+Django Allauth (currently used to handle signups and logins) does have the capacity to allow login with third-party social media accounts. This could be enabled in a future iteration to encourage public users to sign up when login-required features for public users are available (as it requires less effort than creating a new account and password).
+
+- **Information filtering on the staff pages**
+
+The ability to filter the events list by properties such as performer name or venue could be applied to the staff events list.  This would help organisers to quickly check which events an individual performer is booked for, or see if there are any timetable gaps in a particular venue.
+
+- **Filtering by type of event / Addition of an ‘event type’ form selector**
+
+The ability to filter the events list by event type could be added to public and staff events list. This would be a useful feature for public users who are primarily interested in attending one type of event (such as people who mainly go to concerts rather than dances or workshops, or people looking for the child-friendly events).
+
+It would be desirable in this case to first add a pre-determined list of event types to the ‘add event’ form, to ensure consistency in the data entered. This is likely to involve creating a custom database model for event type.
+
+- **More styling on the events lists to increase readability**
+
+The events lists are deliberately fairly plain in the current version.  Additional styling could be added to help with ease of reading, in order to help users more quickly skim-read the events lists and identify events they are interested in.
+
+This could include:
+
+- colour-coded text or background for each event type or each venue
+-   alternating shaded and unshaded backgrounds for each event
+-   icons next to the date, time or event type to visually indicate the type of information in that field.
