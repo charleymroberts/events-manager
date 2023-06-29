@@ -89,6 +89,35 @@ The User Stories used to plan this app can be viewed here:
 
 [User Stories as GitHub Project Board](https://github.com/users/charleymroberts/projects/2/views/1)
 
+### Agile Development
+
+This project was developed using an Agile development approach.  
+
+First, the user stories were created to map out the needs of the product users, which are used as the foundation 
+for developing the product.
+
+A GitHub Project board (see link above) was used to:
+- Manage the Product Backlog (i.e. the total list of tasks needing to be completed, in the form of user stories and epics) 
+- Create epics (the main overall areas the project needs to address): 
+  1. User Authentication 
+  2. CRUD functionality (the staff user section)
+  3. public-facing events programme (the public user section)
+  4. User Interface design  
+  
+- Link user stories to epics (done here using labels)
+- Prioritise user stories using the MoSCoW prioritisation scheme (Must-Have, Should-Have, Could-Have, Won't-Have)
+- As they become ready to be completed, move the user stories into the 'Ready' column on the project board
+- User stories selected for each sprint (see below) are moved into a column for that sprint and reprioritised to show 
+their order of importance within that particular sprint. No more than around 60% of selected user stories per sprint 
+should be 'must-haves'.
+- User stories not completed within a given sprint move back onto the 'Ready' column for inclusion in future Sprints.
+
+User stories were addressed a few at a time in five sprints (allocated dates) of around five days each.
+
+The Timebox approach was used for this, meaning that the length of time available determines the amount of work 
+completed in a sprint. (The Timebox is never extended to fit more work into it, tasks are reprioritised and added to a 
+future sprint, or the decision can be made not to include them if they are of lower priority.)
+
 ### Database models
 
 One of the first steps in producing this app was to design and implement custom data models based on the main categories of information that users would want to store and access.
@@ -342,6 +371,50 @@ It is hoped that the public login function will be added as a future feature, so
 
 ## Deployment process
 
+Deployment was carried out by following the walkthrough videos in the Code Institute course material 'Hello Django > Deployment'.
+
+### Summary
+
+The deployed version is hosted by Heroku using gunicorn, with a PostGres database provided by Elephant SQL
+
+Static files and media uploads are uploaded to Cloudinary
+
+`settings.py` takes deployment-specific configuration (database settings, Django secret key, cloudinary API credentials) from environment variables.  In the deployed version these are set using the Heroku config vars.
+
+### Steps followed
+
+ - Create new app on Heroku
+   
+  - Create new instance on ElephantSQL
+   
+  -  Create Procfile
+   
+  - Add gunicorn to Procfile
+   
+   - Add gunicorn, dj_database_url, psycopg2 to requirements.txt
+   
+   - To manage different settings required by Heroku version vs local
+   version, in env.py and settings.py:
+   
+	   - change database settings in settings.py to use os.environ[‘DATABASE_URL’]
+   
+	   - set DATABASE_URL to sqlite:///db.sqlite3 in env.py for local use
+   
+   - Add config vars to Heroku:
+   
+	   - copy the database URL from ElephantSQL and add to heroku settings as DATABASE_URL variable
+	   
+	   - generate a random secret key and put it in DJANGO_SECRET_KEY
+	   
+	   - set CLOUDINARY_URL with the URL copied from Cloudinary
+	   
+	   -   add PORT: 8000
+   
+  - Connect Github to Heroku in 'deploy', click deploy branch, enable
+   automatic deployments
+   
+ -  Create the initial database using the command 'heroku run python3 manage.py migrate'
+
 ## Credits
 
 ### Code taken from other sources used in this project
@@ -357,6 +430,8 @@ It is hoped that the public login function will be added as a future feature, so
 - Hamburger navbar built using a walkthrough tutorial video by Net Ninja: [https://www.youtube.com/watch?v=7AT1X9Z41sA&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR&index=9](https://www.youtube.com/watch?v=7AT1X9Z41sA&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR&index=9)
 
 ### General resources used
+
+- Code Institute walkthrough videos in modules 'Hello Django' and 'I think therefore I blog'
 
 - Django documentation: [https://docs.djangoproject.com/en/4.2/](https://docs.djangoproject.com/en/4.2/)
 
