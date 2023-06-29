@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('events', '0003_alter_event_name_alter_event_performers_and_more'),
     ]

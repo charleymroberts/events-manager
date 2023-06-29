@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -11,7 +12,6 @@ class Venue(models.Model):
 
     def __str__(self):
         return self.name
-
 
     class Meta:
         ordering = ['name']
@@ -26,9 +26,9 @@ class Performer(models.Model):
     def __str__(self):
         return self.name
 
-
     class Meta:
         ordering = ['name']
+
 
 class Event(models.Model):
     date = models.DateField()
@@ -43,6 +43,5 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
-
     class Meta:
-        ordering = ['date','start_time', 'venue__name']
+        ordering = ['date', 'start_time', 'venue__name']

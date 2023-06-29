@@ -1,17 +1,19 @@
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required, permission_required
 from django.db import IntegrityError
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from .models import Event, Venue, Performer
-from .forms import EventForm, PerformerForm, VenueForm
-from django.contrib.auth.decorators import login_required, permission_required
 
+from .forms import EventForm, PerformerForm, VenueForm
+from .models import Event, Venue, Performer
 
 '''
 Staff pages. Function names should (hopefully) be self-explanatory.
-@login_required decorator = user has to sign up and create an account. 
-@permissions_required decorator = user needs that specific permission granting by the superuser via the admin panel 
-(i.e. access that will be granted to staff users by one of their team)
-In a future version pages may be added for logged-in public users that will just need the @login_required decorator
+@login_required decorator = user has to sign up and create an account.
+@permissions_required decorator = user needs that specific permission
+granting by the superuser via the admin panel (i.e. access that will
+be granted to staff users by one of their team)
+In a future version pages may be added for logged-in public users that
+will just need the @login_required decorator
 '''
 
 
@@ -178,8 +180,14 @@ def delete_venue(request, venue_id):
     try:
         venue.delete()
         messages.success(request, "Venue deleted")
-    except IntegrityError as error:
-        messages.warning(request, "You cannot delete this venue because it has events assigned to it. You must delete or assign the events to a different venue before you can delete this venue.")
+    except IntegrityError:
+        messages.warning(request,
+                         (
+                             "You cannot delete this venue because it has "
+                             "events assigned to it. You must delete or "
+                             "assign the events to a different venue before "
+                             "you can delete this venue.")
+                         )
     return redirect('all-venues')
 
 

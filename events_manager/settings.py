@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
 import dj_database_url
 
 if os.path.exists("env.py"):
@@ -30,7 +31,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DJANGO_DEBUG') == 'yes')
 
-ALLOWED_HOSTS = ['festival-manager-2ef1a8933d4d.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['festival-manager-2ef1a8933d4d.herokuapp.com', 'localhost',
+                 '127.0.0.1']
 
 # Application definition
 
@@ -86,7 +88,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'events_manager.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -112,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -123,7 +123,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
