@@ -136,6 +136,14 @@ The database will also include the standard user group and permission models pro
 
 Initial wireframes were sketched on paper, based around a Bootstrap 12-column model of flexible layouts.
 
+*Sketch of main events programme page:*
+
+![wireframe sketch of events programme](doc/images/wireframe-eventlist.jpeg)
+
+*Sketch of events by day/all performers/all venues pages template:*
+
+![wireframe sketch of list of days/performers/venues template](doc/images/wireframe-summary-pages.png)
+
 The main UI/UX design considerations for this app are:
 
 | Design consideration | Reason needed |
@@ -354,6 +362,8 @@ This could include:
 - LucidChart (ER diagram)
 
 ## Testing
+
+The testing process is documented in [Testing.md](Testing.md) 
 
 ### Unfixed bugs
 
