@@ -146,8 +146,7 @@ Staff users can:
 -   Set their events to 'public' once ready to be published to the public events programme
 -   View a list of all events (in draft and public form) added by all staff users
 -   Add venue details (name, location, accessibility information)
--   Add performer details (name, biog, photo, web link)  
-    
+-   Add performer details (name, biog, photo, web link)
 
 Public users can:
 
@@ -207,6 +206,12 @@ Each page displays a list of information added so far under each category.
 The app displays messages throughout to confirm user interactions: 
 - information has been added, edited or deleted successfully.
 - the user has logged in or out.
+
+**Authorisation to view staff pages**
+
+Different levels of authorisation are set for logged-in staff users vs logged-in public users using decorators on the view functions. `@login_required` decorators simply require the user to be logged in, and the addition of a `@permission_required` decorator plus a specific permission restricts access to users who have had that permission manually granted by the superuser via the admin panel (typically by creating a group with all the staff permissions assigned and then adding users to that group).
+
+At present, signing up and logging in does not grant any additional access unless it is manually added by the superuser (i.e. access that would be granted to members of the organising team).  Due to time constraints it was not possible to add extra features for logged-in public users in this version of the app, but it is hoped that the facility for public users to log in and create a list of ‘favourite’ events would be added in the next iteration (see the ‘Unfixed Bugs’ section of this document for further explanation).
 
 ### Public pages
 
