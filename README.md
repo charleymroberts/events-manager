@@ -172,12 +172,6 @@ This section is likely to be used more often on desktop or laptop computer by st
 
 - Quick links to log in and out (also displays current login status), and switch between the staff and public sections of the app.  These remain the same across all parts of the app.
 
-Note:
-
-The ‘login’ link is also visible on the public site, and is visible to non-logged-in users, so that staff users can find it without the specific login URL. It is unobtrusive, and no harm can be done if a public user tries to sign up for an account, as a superuser needs to manually add the permissions required to view any of the staff pages.
-
-It is hoped that a public login function will be added as a future feature, so the login link remains in place in readiness for this.
-
 **All Events/Performers/Venues pages**
 
 Each page displays a list of information added so far under each category. 
@@ -324,3 +318,19 @@ This could include:
 
 - Figma (banner image)
 - LucidChart (ER diagram)
+
+## Testing
+
+### Unfixed bugs
+
+The ‘login’ link is visible on the public site, and is visible to non-logged-in users. 
+
+The original plan for the app included the ability for public users to log in and create a list of favourite events, so the link was added to public pages.  Additional permissions have already been added to the staff pages to prevent public users from seeing them when logged in.  However, this feature has been reassigned to a future implementation due to time constraints. 
+
+The link is fairly unobtrusive, and no harm can be done if a public user tries to sign up for an account, as a superuser needs to manually add the permissions required to view any of the staff pages. 
+
+It has the advantage that staff users can find the login link without needing to have the direct login URL (such as needing to access the site on their phone when the details are saved on their desktop computer).
+
+It was therefore decided to leave the link in place rather than remove it, although this does mean that a member of the public could sign up for an account and be 'logged in' even though that would give them no additional access or functionality.
+
+It is hoped that the public login function will be added as a future feature, so the link remains in place in readiness for this.
