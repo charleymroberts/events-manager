@@ -5,7 +5,16 @@ from .models import Event, Venue, Performer
 from .forms import EventForm, PerformerForm, VenueForm
 from django.contrib.auth.decorators import login_required, permission_required
 
-# Create your views here.
+
+'''
+Staff pages. Function names should (hopefully) be self-explanatory.
+@login_required decorator = user has to sign up and create an account. 
+@permissions_required decorator = user needs that specific permission granting by the superuser via the admin panel 
+(i.e. access that will be granted to staff users by one of their team)
+In a future version pages may be added for logged-in public users that will just need the @login_required decorator
+'''
+
+
 @login_required()
 @permission_required("events.view_event", raise_exception=True)
 def show_dashboard(request):
@@ -21,71 +30,6 @@ def staff_events_list(request):
     }
     return render(request, 'events/staff/all-events.html', context)
 
-
-def homepage(request):
-    return render(request, 'events/public/welcome.html')
-
-def public_events_programme(request):
-    events = Event.objects.all()
-    context = {
-        'events': events,
-    }
-    return render(request, 'events/public/events-programme.html', context)
-
-
-def view_by_performer(request):
-    performers = Performer.objects.all()
-    context = {
-        'performers': performers
-    }
-    return render(request, 'events/public/by-performer.html', context)
-
-def view_performer(request, performer_id):
-    performer = get_object_or_404(Performer, id=performer_id)
-    events = performer.event_set.all()
-    context = {
-        'performer': performer,
-        'events': events
-    }
-    return render(request, 'events/public/performer.html', context)
-
-
-def view_by_venue(request):
-    venues = Venue.objects.all()
-    context = {
-        'venues': venues
-    }
-    return render(request, 'events/public/by-venue.html', context)
-
-
-
-def view_venue(request, venue_id):
-    this_venue = get_object_or_404(Venue, id=venue_id)
-    events = Event.objects.filter(venue=this_venue)
-    context = {
-        'venue': this_venue,
-        'events': events
-    }
-    return render(request, 'events/public/venue.html', context)
-
-
-def view_by_day(request):
-    days = Event.objects.dates("date", "day")
-    context = {
-        'days': days
-    }
-    return render(request, 'events/public/by-day.html', context)
-
-
-def events_on_day(request, event_date):
-    events = Event.objects.filter(date=event_date)
-    days = Event.objects.dates("date", "day")
-    context = {
-        'events': events,
-        'days': days,
-        'event_date': event_date,
-    }
-    return render(request, 'events/public/day.html', context)
 
 @login_required()
 @permission_required("events.view_performer", raise_exception=True)
@@ -237,3 +181,75 @@ def delete_venue(request, venue_id):
     except IntegrityError as error:
         messages.warning(request, "You cannot delete this venue because it has events assigned to it. You must delete or assign the events to a different venue before you can delete this venue.")
     return redirect('all-venues')
+
+
+'''
+Public pages (no login required to view these)
+'''
+
+
+def homepage(request):
+    return render(request, 'events/public/welcome.html')
+
+
+def public_events_programme(request):
+    events = Event.objects.all()
+    context = {
+        'events': events,
+    }
+    return render(request, 'events/public/events-programme.html', context)
+
+
+def view_by_performer(request):
+    performers = Performer.objects.all()
+    context = {
+        'performers': performers
+    }
+    return render(request, 'events/public/by-performer.html', context)
+
+
+def view_performer(request, performer_id):
+    performer = get_object_or_404(Performer, id=performer_id)
+    events = performer.event_set.all()
+    context = {
+        'performer': performer,
+        'events': events
+    }
+    return render(request, 'events/public/performer.html', context)
+
+
+def view_by_venue(request):
+    venues = Venue.objects.all()
+    context = {
+        'venues': venues
+    }
+    return render(request, 'events/public/by-venue.html', context)
+
+
+def view_venue(request, venue_id):
+    this_venue = get_object_or_404(Venue, id=venue_id)
+    events = Event.objects.filter(venue=this_venue)
+    context = {
+        'venue': this_venue,
+        'events': events
+    }
+    return render(request, 'events/public/venue.html', context)
+
+
+def view_by_day(request):
+    days = Event.objects.dates("date", "day")
+    context = {
+        'days': days
+    }
+    return render(request, 'events/public/by-day.html', context)
+
+
+def events_on_day(request, event_date):
+    events = Event.objects.filter(date=event_date)
+    days = Event.objects.dates("date", "day")
+    context = {
+        'events': events,
+        'days': days,
+        'event_date': event_date,
+    }
+    return render(request, 'events/public/day.html', context)

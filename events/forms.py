@@ -2,6 +2,7 @@ from django import forms
 from .models import Event, Performer, Venue
 
 
+# Widgets code copied from Stack Overflow: https://stackoverflow.com/a/61081644/592139
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event

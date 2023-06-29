@@ -15,6 +15,8 @@
 
     {% get_providers as socialaccount_providers %}
 
+
+    <!--social media login not currently in use, could be added in a future iteration-->
     {% if socialaccount_providers %}
     <p>{% blocktrans with site.name as site_name %}Please sign in with one
         of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
