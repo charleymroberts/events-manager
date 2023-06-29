@@ -119,6 +119,20 @@ The main UI/UX design considerations for this app are:
 | Minimalistic style with few images | Makes app quicker to load, important if large numbers of people in same place (possibly in a field with poor signal) accessing it at same time |
 ||Can be easily customised with customer festival's own branding. A fairly minimal style allows potential customers to imagine the app with their own branding
 
+**Font and colour choices**
+
+- Header and public site navbar background colours: blue-green colours (header #20b2aa, navbar #94e3dc)  to invoke either a field or park or a seaside town (common locations for festivals).
+
+- The staff site navbar uses yellow (#f5d740) to distinguish it from the public site and provide a visual cue to the user about which part of the app they are in.
+
+- Button colours: yellow (using Bootstrap btn-warning class) to invoke the sun/summer (while also being good for visual contrast).
+
+- Dark font colours for the body (off-black #363837), navbar (dark grey #363b37) and jumbotron (black #000) text and an off-white body background colour (#edf4fa) were chosen to provide sufficient background/foreground contrast to be accessible. Link text was changed from the default bright blue to a darker blue (#082c99) in order to pass through the Lighthouse accessibility checker.
+
+- Banner and navbar fonts (Courgette and NeoRetroDraw) are fun and informal to reflect a fun festival atmosphere, while still being clearly legible.
+
+- Body font: Roboto was chosen as it is neutral and legible.  The main consideration is ease of reading a lot of information at once.
+
 ## Features
 
 ### Summary of functionality
