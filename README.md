@@ -91,6 +91,17 @@ The User Stories used to plan this app can be viewed here:
 
 ### Database models
 
+One of the first steps in producing this app was to design and implement custom data models based on the main categories of information that users would want to store and access.
+
+An entity relationship diagram was created as part of planning the custom models.
+
+Custom models were created for Event, Performer, and Venue classes.  Each event has one venue but can have many performers. Each performer can have many events.
+
+![entity relationship diagram showing custom models](doc/images/erd.png)
+
+The database will also include the standard user group and permission models provided by Django.  The distinction between staff users and public users is handled using the Django permissions mechanism.
+
+(Public users will be able to log in in a future version of the app, but this feature did not make it into this iteration. The permissions needed to view staff pages remain in place in the code, so unauthorised users cannot access any of the staff pages by signing up for an account.)
 
 ### User Interface design planning
 
