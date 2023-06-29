@@ -415,6 +415,20 @@ Static files and media uploads are uploaded to Cloudinary
    
  -  Create the initial database using the command 'heroku run python3 manage.py migrate'
 
+The Heroku-specific deployment steps can also be viewed in [this commit](https://github.com/charleymroberts/events-manager/commit/79cf0a8778a4bb3984f76e48d1dffde2b7562098).
+
+### Other users
+
+Another user could fork the GitHub repository into their own namespace and edit it to customise the app to their requirements.  
+
+In particular, another user may wish to:
+
+- Edit the CSS file to add their own colour scheme
+
+- Add their own logos/banners etc. to the Static folder to add their own branding to the user interface
+
+If wishing to deploy their version to Heroku, another user would need their own Heroku and Cloudinary accounts and their own PostgreSQL database (on ElephantSQL or similar).
+
 ## Credits
 
 ### Code taken from other sources used in this project
