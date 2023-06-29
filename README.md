@@ -339,3 +339,77 @@ It has the advantage that staff users can find the login link without needing to
 It was therefore decided to leave the link in place rather than remove it, although this does mean that a member of the public could sign up for an account and be 'logged in' even though that would give them no additional access or functionality.
 
 It is hoped that the public login function will be added as a future feature, so the link remains in place in readiness for this.
+
+## Deployment process
+
+## Credits
+
+### Code taken from other sources used in this project
+
+- Custom date converter, for converting a Python date to a `YYYY-MM-DD` string in the URL and vice versa: [https://danjacob.net/posts/djangocustomconverters/](https://danjacob.net/posts/djangocustomconverters/)
+
+- Date selector on the 'Add Event' form: https://stackoverflow.com/a/61081644/592139
+
+- 'Columns with icons' html taken from the 'Features' section of the Bootstrap website, used for the 'dashboard' page layout: [https://getbootstrap.com/docs/5.3/examples/features/](https://getbootstrap.com/docs/5.3/examples/features/)
+
+- Public landing page jumbotron class based on example html taken from the Bootstrap website: [https://getbootstrap.com/docs/5.3/examples/jumbotrons/](https://getbootstrap.com/docs/5.3/examples/jumbotrons/)
+
+- Hamburger navbar built using a walkthrough tutorial video by Net Ninja: [https://www.youtube.com/watch?v=7AT1X9Z41sA&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR&index=9](https://www.youtube.com/watch?v=7AT1X9Z41sA&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR&index=9)
+
+### General resources used
+
+- Django documentation: [https://docs.djangoproject.com/en/4.2/](https://docs.djangoproject.com/en/4.2/)
+
+- Bootstrap documentation: [https://getbootstrap.com/docs/5.3/getting-started/introduction/](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+- Bootstrap Examples: https://getbootstrap.com/docs/5.3/examples/
+
+- Net Ninja Bootstrap 5 tutorial videos: https://www.youtube.com/watch?v=O_9u1P5YjVc&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR
+
+### Documentation or other information sources used to help with specific tasks
+
+- **Alerts**
+
+Javascript confirm popup (used for the delete confirmation alert): [https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)
+
+- **Database models**
+
+How to display many to many (i.e. multiple performers for one event) in a template:
+[https://stackoverflow.com/questions/4270330/django-show-a-manytomanyfield-in-a-template](https://stackoverflow.com/questions/4270330/django-show-a-manytomanyfield-in-a-template) 
+
+- **Django queries**
+
+How to pull out a list of unique dates from the events table to display a list of dates on the 'events by date' page: https://docs.djangoproject.com/en/4.2/ref/models/querysets/#dates
+
+- **Levels of user authentication**
+
+How to make pages only visible to logged in users:
+https://docs.djangoproject.com/en/4.2/topics/auth/default/#django.contrib.auth.decorators.login_required
+
+Adding permissions in addition to login being required (to add different levels of authentication for staff and public users):
+https://docs.djangoproject.com/en/4.2/topics/auth/default/#the-permission-required-decorator
+
+- **Photos**
+
+Uploading photos to Cloudinary: https://docs.djangoproject.com/en/4.2/ref/forms/api/#binding-uploaded-files
+
+Using {{ performer.photo.url }} in the template to get the right URL to serve the uploaded image
+[https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.FileField.storage](https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.FileField.storage) (Point 3 on this page)
+
+- **Styling**
+
+Form styling using django-bootstrap5
+https://pypi.org/project/django-bootstrap5/
+
+### Images & Fonts
+
+ - Illustrations in the header banner image are open source icons from the iconduck plugin in Figma: [https://iconduck.com/](https://iconduck.com/)
+
+-   Favicon from favicon.ico [https://favicon.io/emoji-favicons/circus-tent/](https://favicon.io/emoji-favicons/circus-tent/) under a Creative Commons licence
+
+-   Bootstrap Icons for the icons on staff dashboard and arrow on landing page button [https://icons.getbootstrap.com/#install](https://icons.getbootstrap.com/#install)
+-   Performer photos (on performer info pages) are all owned by me
+
+-   Google Fonts for Roboto (main body text)
+
+-   Fontsquirrel for NeoRetroDraw (navbar font)
