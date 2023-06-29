@@ -297,3 +297,30 @@ This could include:
 - colour-coded text or background for each event type or each venue
 -   alternating shaded and unshaded backgrounds for each event
 -   icons next to the date, time or event type to visually indicate the type of information in that field.
+
+## Technologies used
+
+### Languages and frameworks
+
+- Django
+- Python
+- Bootstrap 5
+- HTML5
+- CSS3 & webfonts (Google Fonts and fontsquirrel)
+- JavaScript (for delete confirmation event handlers only)
+
+### Databases
+
+- PostgreSQL via ElephantSQL (in deployment)
+- sqlite3 (local development)
+
+### Platforms
+
+- Cloudinary (static file and media storage)
+- Heroku (deployment platform)
+- Github (version control, project boards)
+
+### Design tools
+
+- Figma (banner image)
+- LucidChart (ER diagram)
