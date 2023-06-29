@@ -44,7 +44,7 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
         {% endif %}
         {% bootstrap_button button_type="submit" content="Login" %}
     </form>

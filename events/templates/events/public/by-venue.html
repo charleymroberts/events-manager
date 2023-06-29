@@ -6,14 +6,16 @@
 
 <div class="container-md">
 
-<div class="row text-center justify-content-center">
-    <h2 class="display-6">Venues</h2>
+    <div class="row text-center justify-content-center">
+        <h2 class="display-6">Venues</h2>
 
-    {% for venue in venues %}
-        <a class="by-value-button btn btn-warning btn-lg col-6 col-md-4 col-lg-3 rounded-pill m-2" href="{% url 'venue' venue.id %}">
-            {{ venue.name }}
-        </a>
-    {% endfor %}
+        {% for venue in venues %}
+            <a class="by-value-button btn btn-warning btn-lg col-6 col-md-4 col-lg-3 rounded-pill m-2" href="{% url 'venue' venue.id %}">
+                {{ venue.name }}
+            </a>
+        {% endfor %}
+
+    </div>
 
 </div>
 
