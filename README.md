@@ -524,4 +524,4 @@ https://pypi.org/project/django-bootstrap5/
 
 -   [Google Fonts](https://fonts.google.com/) for Roboto (main body text)
 
--   [Font Squirrel](https://fonts.google.com/) for NeoRetroFill (navbar font)
+-   [Font Squirrel](https://www.fontsquirrel.com/) for NeoRetroFill (navbar font)
