@@ -331,8 +331,8 @@ The events lists are deliberately fairly plain in the current version.  Addition
 This could include:
 
 - colour-coded text or background for each event type or each venue
--   alternating shaded and unshaded backgrounds for each event
--   icons next to the date, time or event type to visually indicate the type of information in that field.
+- alternating shaded and unshaded backgrounds for each event
+- icons next to the date, time or event type to visually indicate the type of information in that field.
 
 ## Technologies used
 
@@ -340,26 +340,26 @@ This could include:
 
 - Django
 - Python
-- Bootstrap 5
+- [Bootstrap 5](https://getbootstrap.com/)
 - HTML5
-- CSS3 & webfonts (Google Fonts and fontsquirrel)
+- CSS3 & webfonts ([Google Fonts](https://fonts.google.com/) and [Font Squirrel](https://www.fontsquirrel.com/))
 - JavaScript (for delete confirmation event handlers only)
 
 ### Databases
 
-- PostgreSQL via ElephantSQL (in deployment)
+- PostgreSQL via [ElephantSQL](https://www.elephantsql.com/) (in deployment)
 - sqlite3 (local development)
 
 ### Platforms
 
-- Cloudinary (static file and media storage)
-- Heroku (deployment platform)
-- Github (version control, project boards)
+- [Cloudinary](https://cloudinary.com/) (static file and media storage)
+- [Heroku](https://www.heroku.com/) (deployment platform)
+- [GitHub](https://github.com/) (version control, project boards)
 
 ### Design tools
 
-- Figma (banner image)
-- LucidChart (ER diagram)
+- [Figma](https://www.figma.com/) (banner image)
+- [LucidChart](https://www.lucidchart.com/pages/) (ER diagram)
 
 ## Testing
 
@@ -522,6 +522,6 @@ https://pypi.org/project/django-bootstrap5/
 -   Bootstrap Icons for the icons on staff dashboard and arrow on landing page button [https://icons.getbootstrap.com/#install](https://icons.getbootstrap.com/#install)
 -   Performer photos (on performer info pages) are all owned by me
 
--   Google Fonts for Roboto (main body text)
+-   [Google Fonts](https://fonts.google.com/) for Roboto (main body text)
 
--   Fontsquirrel for NeoRetroDraw (navbar font)
+-   [Font Squirrel](https://fonts.google.com/) for NeoRetroFill (navbar font)
