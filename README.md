@@ -402,7 +402,7 @@ The deployed version is hosted by Heroku using gunicorn, with a PostgreSQL datab
 
 Static files and media uploads are uploaded to Cloudinary.
 
-`settings.py` takes deployment-specific configuration (database settings, Django secret key, cloudinary API credentials) from environment variables.  In the deployed version these are set using the Heroku config vars.
+`settings.py` takes deployment-specific configuration (database settings, Django secret key, Cloudinary API credentials) from environment variables.  In the deployed version these are set using the Heroku config vars.
 
 ### Steps followed
 
@@ -425,7 +425,7 @@ Static files and media uploads are uploaded to Cloudinary.
    
    - Add config vars to Heroku:
    
-	   - copy the database URL from ElephantSQL and add to heroku settings as DATABASE_URL variable
+	   - copy the database URL from ElephantSQL and add to Heroku settings as DATABASE_URL variable
 	   
 	   - generate a random secret key and put it in DJANGO_SECRET_KEY
 	   

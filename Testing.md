@@ -171,13 +171,15 @@ All forms:
 
 Form-specific fields:
 
-4. 'Add event' form: Date and time pickers function correctly 
-
+4. 'Add event' form: Date and time pickers function correctly
 
 5. 'Add performer' form: Error shown on clicking submit if the 'weblink' field is not in valid URL format
+
+6. 'Delete venue' does not allow the user to delete a venue if that venue has events assigned to it.
 
 **Authorisation**
 
 1. Users who are not logged in cannot access any of the staff pages, including by entering the URLs directly
 
 2. Users who have created an account and logged in but have not had any staff permissions added cannot access any of the staff pages, including by entering the URLs directly
+
